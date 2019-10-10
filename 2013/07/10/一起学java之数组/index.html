@@ -15,18 +15,28 @@
 
 
 
-<meta name="description" content="一只假的开发">
-<meta name="keywords" content="程振奇">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的标签云">
-<meta property="og:url" content="http://blog.visutech.com/tags/index.html">
+<meta name="description" content="数组的定义1.什么是数组:   数组是一个引用类型的变量,存储相同数据类型的一组数据   2.什么是声明变量 声明数组">
+<meta name="keywords" content="JAVA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一起学java之数组">
+<meta property="og:url" content="http://blog.visutech.com/2013/07/10/一起学java之数组/index.html">
 <meta property="og:site_name" content="小奇的博客">
-<meta property="og:description" content="一只假的开发">
+<meta property="og:description" content="数组的定义1.什么是数组:   数组是一个引用类型的变量,存储相同数据类型的一组数据   2.什么是声明变量 声明数组">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-19T08:36:14.279Z">
+<meta property="og:image" content="http://blog.visutech.com/images/new_array_obj.png">
+<meta property="og:image" content="http://blog.visutech.com/images/new_array_eg.png">
+<meta property="og:image" content="http://blog.visutech.com/images/new_array_neicun.png">
+<meta property="og:image" content="http://blog.visutech.com/images/array_max_num.png">
+<meta property="og:image" content="http://blog.visutech.com/images/maopaoyuanli.png">
+<meta property="og:image" content="http://blog.visutech.com/images/maopao_eg.png">
+<meta property="og:image" content="http://blog.visutech.com/images/chrngxuneicfenbutu.png">
+<meta property="og:image" content="http://blog.visutech.com/images/yiwei_array_neicun.png">
+<meta property="og:image" content="http://blog.visutech.com/images/erwei_array_neicun.png">
+<meta property="og:updated_time" content="2019-10-10T02:30:18.632Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的标签云">
-<meta name="twitter:description" content="一只假的开发">
+<meta name="twitter:title" content="一起学java之数组">
+<meta name="twitter:description" content="数组的定义1.什么是数组:   数组是一个引用类型的变量,存储相同数据类型的一组数据   2.什么是声明变量 声明数组">
+<meta name="twitter:image" content="http://blog.visutech.com/images/new_array_obj.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +68,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>我的标签云 | 小奇的博客</title>
+<title>一起学java之数组 | 小奇的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -68,7 +78,7 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -267,11 +277,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-一起学java之数组" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/tags/index.html" class="article-date">
-      <time datetime="2019-08-16T06:06:58.000Z" itemprop="datePublished">2019-08-16</time>
+      <a href="/2013/07/10/一起学java之数组/" class="article-date">
+      <time datetime="2013-07-10T01:14:17.000Z" itemprop="datePublished">2013-07-10</time>
 </a>
 
 
@@ -286,7 +296,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      我的标签云
+      一起学java之数组
     </h1>
   
 
@@ -294,8 +304,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/一起学java/">一起学java</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -303,96 +321,147 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
+        <h6 id="数组的定义"><a href="#数组的定义" class="headerlink" title="数组的定义"></a>数组的定义</h6><p>1.什么是数组: </p>
+<ul>
+<li>数组是一个引用类型的变量,存储相同数据类型的一组数据 </li>
+</ul>
+<p>2.什么是声明变量 声明数组</p>
+<a id="more"></a>
+<ul>
+<li>声明一个变量就是在内存空间划出一块合适的空间</li>
+<li>声明一个数组就是在内存空间划出一串连续的空间 </li>
+</ul>
+<p><img src="/images/new_array_obj.png" alt></p>
+<p>3.数组的结构和基本要素 </p>
+<ul>
+<li>标示符:数组的名称,用于区分不同的数组 </li>
+<li>数组元素:在数组中存放的数据 </li>
+<li>元素下标:对数组元素进行编号 </li>
+<li>元素类型:数组元素的数据类型 </li>
+</ul>
+<h6 id="使用数组"><a href="#使用数组" class="headerlink" title="使用数组"></a>使用数组</h6><p>1.声明数组的语法 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">数据类型    数组名[];    或者 </span><br><span class="line">数据类型[]   数组名;</span><br></pre></td></tr></table></figure>
 
+<p>2.注意:</p>
+<ul>
+<li>推荐使用后一种语法 </li>
+<li>数据类型可以是基本数据类型,也可以是引用数据类型 </li>
+<li>数组名遵循标示符的命名规范,建议使用名词的复数形式 </li>
+<li>数组在声明时无法指定数组长途,因为数组声明在栈内存中 </li>
+</ul>
+<p>3.举例</p>
+<p><img src="/images/new_array_eg.png" alt></p>
+<p>4.给数组分配空间的语法 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组名   =   new   数据类型[数组长度];</span><br></pre></td></tr></table></figure>
 
-    <!-- Tag Cloud Page -->
-    <hr>
-<br>
-<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/一起学java/">一起学java</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/玩转spring/">玩转spring</a><span class="category-list-count">1</span></li></ul>
+<p>注意:</p>
+<ul>
+<li>数组声明后,并没有为它分配存储空间,要存入数据,必须要先分配存储空间 </li>
+<li>给数组分配内存使用new关键字,会在堆内存中分配相应的空间 </li>
+<li>数组的内存空间分配之后,长度无法改变,如果重新定义,会将之前的数组删除,建立新的数组 <ul>
+<li>如下图第一句在堆内存中新建了一个长途为5的int类型的数组,并且赋值给nums   第二句重新在堆内存中新建了一个长度为7的int类型的数组,赋值给nums,之前的数组在堆内存中销毁了 </li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/new_array_neicun.png" alt></p>
+<p>5.数组赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">数据类型[]   数组名   =   &#123;数组元素&#125;;       或                             </span><br><span class="line"></span><br><span class="line">数据类型[]   数组名   =   new   数据类型[]&#123;数组元素&#125;   或</span><br><span class="line"></span><br><span class="line">数组名[数组下标]  =  数据值</span><br></pre></td></tr></table></figure>
 
-<p class="count"></p>
+<h6 id="数组的应用"><a href="#数组的应用" class="headerlink" title="数组的应用"></a>数组的应用</h6><p>1.求最大值</p>
+<ul>
+<li>原理,定义变量max,使用max和数组中的所有元素挨个比较,如果有元素的值大于max,就使max的值等于该元素的值,这样经过一轮比较够,max的值便是数组中最大的那个值. </li>
+<li>算法举例(假设数组名为a): </li>
+</ul>
+<p><img src="/images/array_max_num.png" alt></p>
+<p>2.冒泡排序</p>
+<ul>
+<li>原理,讲n个数从小到大排列,可以在第一次循环中找出最大的数放在数组的最后位置,在第二次循环中找出第二大的数放在数组的倒数第二个位置,…….,n-1次循环后,数组即从小到大排列了 </li>
+</ul>
+<p><img src="/images/maopaoyuanli.png" alt></p>
+<ul>
+<li>算法举例</li>
+</ul>
+<p><img src="/images/maopao_eg.png" alt></p>
+<h6 id="再谈基本数据类型和引用数据类型"><a href="#再谈基本数据类型和引用数据类型" class="headerlink" title="再谈基本数据类型和引用数据类型"></a>再谈基本数据类型和引用数据类型</h6><p>1.java的内存是怎样的 </p>
+<ul>
+<li>Heap(堆,new出来的东西)</li>
+<li>stack(栈,局部变量) </li>
+<li>data segment(静态代码区,静态变量,字符串常量)</li>
+<li>code segment(存放代码) </li>
+</ul>
+<p><img src="/images/chrngxuneicfenbutu.png" alt></p>
+<p>2.基本数据类型:对于基本数据类型,不同的变量会分配不同的存储空间,改变一个变量的值不会影响其他变量的值;</p>
+<p>3.引用数据类型:对于引用数据类型,不同的变量可能会指向同一块内存地址,改变一个变量的值可能会影响其他变量的值</p>
+<h6 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h6><p>1.二维数组的每一个元素是另一个数组,本质上是指向另一个数组的引用<br>2.一维数组的内存结构 </p>
+<p><img src="/images/yiwei_array_neicun.png" alt></p>
+<p>3.二维数组的内存结构 </p>
+<p><img src="/images/erwei_array_neicun.png" alt></p>
 
-<div class="tags">
-    <a href="/tags/JAVA/" style="font-size: 35px; color: #000">JAVA</a> <a href="/tags/Spring/" style="font-size: 16px; color: #808080">Spring</a>
-</div>
-<style>
-    .category-list li{
-        display: inline-block;
-        margin: 0 1em .5em 0;
-        padding: 4px;
-        border: 1px solid lightgray;
-        font-size: 1.2rem;
-    }
-    .category-list a { color: gray; }
-    .category-list-item:hover a {
-        color: gray;
-        text-decoration: none;
-    }
-    .category-list-count {
-        margin-left: 2px;
-        font-size: .9rem;
-    }
-    .article-entry ul li:before{ display: none; }
-    .article-inner { text-align: center; }
-    .tags {
-        max-width: 42em;
-        margin: 2em auto;
-        margin-top: 0em;
-    }
-    .tags a {
-        margin-right: 1em;
-        line-height: 65px;
-        border-bottom: 1px solid gray;
-        white-space: nowrap;
-        transition: border-bottom .5s;
-    }
-    .tags a:hover {
-        border-bottom: 3px dotted gray;
-        text-decoration: none;
-    }
-    #count > span {
-        margin: auto .2em;
-        font-weight: bold;
-    }
-</style>
-
-<!-- Count tags and categories -->
-<p id="count">
-        已有<span><script>document.write($(".category-list-item").length)</script></span>个分类，
-        共计<span><script>document.write($(".tags > a").length)</script></span>个标签
-</p>
-<script>
-    $('#count').appendTo('.count');
-</script>
-
-          
-        
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2013/07/10/一起学java之数组/">一起学java之数组</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">程振奇 | smallodd</a></p>
+        <p><span>发布时间:</span>2013-07-10, 09:14:17</p>
+        <p><span>最后更新:</span>2019-10-10, 10:30:18</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2013/07/10/一起学java之数组/" title="一起学java之数组">http://blog.visutech.com/2013/07/10/一起学java之数组/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.visutech.com/2013/07/10/一起学java之数组/　　作者: 程振奇 | smallodd" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2013/07/10/一起学java之String简介/">
+                    一起学java之String简介
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2013/07/09/一起学java之Java语言程序结构 /">
+                    一起学java之Java语言程序结构
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#数组的定义"><span class="toc-number">1.</span> <span class="toc-text">数组的定义</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#使用数组"><span class="toc-number">2.</span> <span class="toc-text">使用数组</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#数组的应用"><span class="toc-number">3.</span> <span class="toc-text">数组的应用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#再谈基本数据类型和引用数据类型"><span class="toc-number">4.</span> <span class="toc-text">再谈基本数据类型和引用数据类型</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#二维数组"><span class="toc-number">5.</span> <span class="toc-text">二维数组</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
 
@@ -410,7 +479,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"我的标签云　| 小奇的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"一起学java之数组　| 小奇的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -425,6 +494,26 @@
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2013/07/10/一起学java之String简介/" title="上一篇: 一起学java之String简介">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2013/07/09/一起学java之Java语言程序结构 /" title="下一篇: 一起学java之Java语言程序结构">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/基于SpringBoot2.x，Quartz的定时任务的动态修改/">基于SpringBoot2.x，Quartz的定时任务的动态修改</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/02/09/玩转spring之Singleton（单例模式） /">玩转spring之Singleton（单例模式）</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之String简介/">一起学java之String简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之数组/">一起学java之数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/09/一起学java之Java语言程序结构 /">一起学java之Java语言程序结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/09/一起学java之变量,数据类型和运算符 /">一起学java之变量,数据类型和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/01/一起学java之jdk的安装/">一起学java之jdk的安装</a></li></ul>
 
 
 

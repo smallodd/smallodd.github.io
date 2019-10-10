@@ -15,17 +15,18 @@
 
 
 
-<meta name="description" content="一只假的开发">
-<meta name="keywords" content="程振奇">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小奇的博客">
-<meta property="og:url" content="http://blog.visutech.com/categories/一起学java/index.html">
+<meta name="description" content="基本概念1.String是一个类型,用来存储一串字符的,本质上是一个char类型的数组  2.String类在java.lang包中,lang包已经默认导入,我们不需要再用import导入了  3.定义及赋初始值">
+<meta name="keywords" content="JAVA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一起学java之String简介">
+<meta property="og:url" content="http://blog.visutech.com/2013/07/10/一起学java之String简介/index.html">
 <meta property="og:site_name" content="小奇的博客">
-<meta property="og:description" content="一只假的开发">
+<meta property="og:description" content="基本概念1.String是一个类型,用来存储一串字符的,本质上是一个char类型的数组  2.String类在java.lang包中,lang包已经默认导入,我们不需要再用import导入了  3.定义及赋初始值">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-10T02:29:52.949Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小奇的博客">
-<meta name="twitter:description" content="一只假的开发">
+<meta name="twitter:title" content="一起学java之String简介">
+<meta name="twitter:description" content="基本概念1.String是一个类型,用来存储一串字符的,本质上是一个char类型的数组  2.String类在java.lang包中,lang包已经默认导入,我们不需要再用import导入了  3.定义及赋初始值">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -57,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Category: 一起学java | 小奇的博客</title>
+<title>一起学java之String简介 | 小奇的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -67,10 +68,10 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
-        isCategory: true,
+        isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
         search: true
@@ -266,208 +267,302 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-一起学java之String简介" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2013/07/10/一起学java之String简介/" class="article-date">
+      <time datetime="2013-07-10T02:09:25.000Z" itemprop="datePublished">2013-07-10</time>
+</a>
+
+
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      一起学java之String简介
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/一起学java/">一起学java</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2013/07/10/一起学java之String简介/" class="archive-article-date">
-      <time datetime="2013-07-10T02:09:25.000Z" itemprop="datePublished">07-10</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/07/10/一起学java之String简介/">一起学java之String简介</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/一起学java/">一起学java</a>
+        <h6 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h6><p>1.String是一个类型,用来存储一串字符的,本质上是一个char类型的数组 </p>
+<p>2.String类在java.lang包中,lang包已经默认导入,我们不需要再用import导入了 </p>
+<p>3.定义及赋初始值 </p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String  变量名  =  &quot;初始值&quot;; </span><br><span class="line"></span><br><span class="line">String  变量名  =  new  String(&quot;初始值&quot;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第二种方法不常用,推荐使用第一种 </li>
+</ul>
+<p>4.字符串可以进行”+”运算,作用是连接两个字符串,也可以将字符串与基本类型的变量进行”+”运算,系统会自动将基本类型的变量转换成字符串进行连接操作 </p>
+<p>5.内存中的字符串,字符串的intern()方法,字符串比较 </p>
+<p>6.注意:</p>
+<ul>
+<li>内存中的字符串,注意代码中没有new的字符串字面常量会在编译时编译进字符串池中 </li>
+<li>intern()方法,返回字符串在字符串池中的位置,或者向字符串池中注册 </li>
+<li>对于引用类型,==比较地址是否相同,equals()比较内容是否相同 </li>
+</ul>
+<h6 id="一些操作"><a href="#一些操作" class="headerlink" title="一些操作"></a>一些操作</h6><p>1.常用的方法</p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>返回类型</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>length()</td>
+<td>int</td>
+<td>获取字符串长度</td>
+</tr>
+<tr>
+<td>charAt(int)</td>
+<td>char</td>
+<td>获取字符串中的一个字符</td>
+</tr>
+<tr>
+<td>indexOf(String)</td>
+<td>int</td>
+<td>返回传入字符串在原字符串中第一次出现的位置</td>
+</tr>
+<tr>
+<td>startWith(String)</td>
+<td>boolean</td>
+<td>判断原字符串是否以传入字符串开始</td>
+</tr>
+<tr>
+<td>endsWith(String)</td>
+<td>boolean</td>
+<td>判断原字符串是否以传入字符串结束</td>
+</tr>
+<tr>
+<td>toUpperCase()</td>
+<td>String</td>
+<td>变大写</td>
+</tr>
+<tr>
+<td>substring()</td>
+<td>String</td>
+<td>截取字符串</td>
+</tr>
+<tr>
+<td>trim()</td>
+<td>String</td>
+<td>去前后空格</td>
+</tr>
+<tr>
+<td>split()</td>
+<td>String[]</td>
+<td>原字符串按特定字符串分割成一个字符串数组</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody></table>
+<h6 id="字符串与基本数据类型的转换"><a href="#字符串与基本数据类型的转换" class="headerlink" title="字符串与基本数据类型的转换"></a>字符串与基本数据类型的转换</h6><p>1.基本类型装换为字符串,用一个空字符串”” 与基本类型的变量相加 </p>
+<p>2.基本类型转换为字符串,使用String的ValueOf方法 </p>
+<p>3.字符串转换为基本类型,使用各类型的包装类,char使用字符串的charAt()方法 </p>
+<table>
+<thead>
+<tr>
+<th>基本类型</th>
+<th>包装类型</th>
+<th>转化方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int</td>
+<td>Interger</td>
+<td>parseInt();</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>Byte</td>
+<td>parseByte();</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+<td>parseShort();</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+<td>parseLong();</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float</td>
+<td>parseFloat();</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+<td>parseDouble();</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+<td>parseBoolean();</td>
+</tr>
+</tbody></table>
+<h6 id="StringBuffer和StringBuilder"><a href="#StringBuffer和StringBuilder" class="headerlink" title="StringBuffer和StringBuilder"></a>StringBuffer和StringBuilder</h6><p>1.StringBuffe在对字符串操作时效率要远高于String </p>
+<p>2.StringBuffer与StringBuilder用法相似,但StringBuffer线程安全,推荐使用 </p>
+<p>3.StringBuffer的insert();append();delete()方法 </p>
+
+      
     </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2013/07/10/一起学java之String简介/">一起学java之String简介</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">程振奇 | smallodd</a></p>
+        <p><span>发布时间:</span>2013-07-10, 10:09:25</p>
+        <p><span>最后更新:</span>2019-10-10, 10:29:52</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2013/07/10/一起学java之String简介/" title="一起学java之String简介">http://blog.visutech.com/2013/07/10/一起学java之String简介/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.visutech.com/2013/07/10/一起学java之String简介/　　作者: 程振奇 | smallodd" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2014/02/09/玩转spring之Singleton（单例模式） /">
+                    玩转spring之Singleton（单例模式）
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2013/07/10/一起学java之数组/">
+                    一起学java之数组
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2013/07/10/一起学java之数组/" class="archive-article-date">
-      <time datetime="2013-07-10T01:14:17.000Z" itemprop="datePublished">07-10</time>
-</a>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#基本概念"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#一些操作"><span class="toc-number">2.</span> <span class="toc-text">一些操作</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#字符串与基本数据类型的转换"><span class="toc-number">3.</span> <span class="toc-text">字符串与基本数据类型的转换</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#StringBuffer和StringBuilder"><span class="toc-number">4.</span> <span class="toc-text">StringBuffer和StringBuilder</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/07/10/一起学java之数组/">一起学java之数组</a>
-    </h1>
-  
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"一起学java之String简介　| 小奇的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
 
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/一起学java/">一起学java</a>
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2014/02/09/玩转spring之Singleton（单例模式） /" title="上一篇: 玩转spring之Singleton（单例模式）">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2013/07/10/一起学java之数组/" title="下一篇: 一起学java之数组">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
 
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2013/07/09/一起学java之Java语言程序结构 /" class="archive-article-date">
-      <time datetime="2013-07-09T08:49:24.000Z" itemprop="datePublished">07-09</time>
-</a>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/基于SpringBoot2.x，Quartz的定时任务的动态修改/">基于SpringBoot2.x，Quartz的定时任务的动态修改</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/02/09/玩转spring之Singleton（单例模式） /">玩转spring之Singleton（单例模式）</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之String简介/">一起学java之String简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之数组/">一起学java之数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/09/一起学java之Java语言程序结构 /">一起学java之Java语言程序结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/09/一起学java之变量,数据类型和运算符 /">一起学java之变量,数据类型和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/01/一起学java之jdk的安装/">一起学java之jdk的安装</a></li></ul>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/07/09/一起学java之Java语言程序结构 /">一起学java之Java语言程序结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/一起学java/">一起学java</a>
-    </div>
 
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2013/07/09/一起学java之变量,数据类型和运算符 /" class="archive-article-date">
-      <time datetime="2013-07-09T03:50:38.000Z" itemprop="datePublished">07-09</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/07/09/一起学java之变量,数据类型和运算符 /">一起学java之变量,数据类型和运算符</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/一起学java/">一起学java</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2013/07/01/一起学java之jdk的安装/" class="archive-article-date">
-      <time datetime="2013-06-30T23:33:07.000Z" itemprop="datePublished">07-01</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/07/01/一起学java之jdk的安装/">一起学java之jdk的安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/一起学java/">一起学java</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
