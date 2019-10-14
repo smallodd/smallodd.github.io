@@ -15,23 +15,34 @@
 
 
 
-<meta name="description" content="万物皆对象1.我们能感受到的万事万物都是一个个对象,都属于某一个类型  2.对象具有各种各样的属性,同时也拥有各种各样的行为  3.把一系列对象的共同特征和行为抽象出来,形成一个概念模型,就是类;也就是说:类是对象的抽象定义,对象是类的具体实例">
+<meta name="description" content="概述1.数组长度一旦确定,就无法更改,除非建立新的数组,比较浪费内存,操作不方便,java为我们提供了许多容器类  2.容器各有特点,使用时视情况而定">
 <meta name="keywords" content="JAVA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一起学java之类与对象">
-<meta property="og:url" content="http://blog.visutech.com/2013/10/10/一起学java之类与对象/index.html">
+<meta property="og:title" content="一起学java之集合框架">
+<meta property="og:url" content="http://blog.visutech.com/2013/07/14/一起学java之集合框架/index.html">
 <meta property="og:site_name" content="小奇的博客">
-<meta property="og:description" content="万物皆对象1.我们能感受到的万事万物都是一个个对象,都属于某一个类型  2.对象具有各种各样的属性,同时也拥有各种各样的行为  3.把一系列对象的共同特征和行为抽象出来,形成一个概念模型,就是类;也就是说:类是对象的抽象定义,对象是类的具体实例">
+<meta property="og:description" content="概述1.数组长度一旦确定,就无法更改,除非建立新的数组,比较浪费内存,操作不方便,java为我们提供了许多容器类  2.容器各有特点,使用时视情况而定">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://blog.visutech.com/images/class_helloworld.png">
-<meta property="og:image" content="http://blog.visutech.com/images/class_student_obj.png">
-<meta property="og:image" content="http://blog.visutech.com/images/classs_student_test.png">
-<meta property="og:image" content="http://blog.visutech.com/images/class_student_chenguan.png">
-<meta property="og:updated_time" content="2019-10-10T04:01:49.112Z">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014102800.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014103307.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014103410.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014103455.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014103722.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014103915.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014104008.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014104132.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014104229.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014104333.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014104444.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014104641.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014104815.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014104859.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014104933.png">
+<meta property="og:updated_time" content="2019-10-14T02:52:35.968Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一起学java之类与对象">
-<meta name="twitter:description" content="万物皆对象1.我们能感受到的万事万物都是一个个对象,都属于某一个类型  2.对象具有各种各样的属性,同时也拥有各种各样的行为  3.把一系列对象的共同特征和行为抽象出来,形成一个概念模型,就是类;也就是说:类是对象的抽象定义,对象是类的具体实例">
-<meta name="twitter:image" content="http://blog.visutech.com/images/class_helloworld.png">
+<meta name="twitter:title" content="一起学java之集合框架">
+<meta name="twitter:description" content="概述1.数组长度一旦确定,就无法更改,除非建立新的数组,比较浪费内存,操作不方便,java为我们提供了许多容器类  2.容器各有特点,使用时视情况而定">
+<meta name="twitter:image" content="http://blog.visutech.com/images/20191014102800.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -63,7 +74,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>一起学java之类与对象 | 小奇的博客</title>
+<title>一起学java之集合框架 | 小奇的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -93,6 +104,8 @@
     <script> yiliaConfig.rootUrl = "\/";</script>
 
 
+
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56ff76c972fc0cf9"></script>
 
 
 
@@ -272,11 +285,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-一起学java之类与对象" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-一起学java之集合框架" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2013/10/10/一起学java之类与对象/" class="article-date">
-      <time datetime="2013-10-10T03:51:54.000Z" itemprop="datePublished">2013-10-10</time>
+      <a href="/2013/07/14/一起学java之集合框架/" class="article-date">
+      <time datetime="2013-07-14T02:25:40.000Z" itemprop="datePublished">2013-07-14</time>
 </a>
 
 
@@ -291,7 +304,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      一起学java之类与对象
+      一起学java之集合框架
     </h1>
   
 
@@ -316,83 +329,109 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h5 id="万物皆对象"><a href="#万物皆对象" class="headerlink" title="万物皆对象"></a>万物皆对象</h5><p>1.我们能感受到的万事万物都是一个个对象,都属于某一个类型 </p>
-<p>2.对象具有各种各样的属性,同时也拥有各种各样的行为 </p>
-<p>3.把一系列对象的共同特征和行为抽象出来,形成一个概念模型,就是类;也就是说:类是对象的抽象定义,对象是类的具体实例 </p>
+        <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>1.数组长度一旦确定,就无法更改,除非建立新的数组,比较浪费内存,操作不方便,java为我们提供了许多容器类 </p>
+<p>2.容器各有特点,使用时视情况而定 </p>
 <a id="more"></a>
-<p>4.面向对象程序的本质就是:将程序设计成一个一个的类,定义出他们的特征和行为(即属性和方法),然后根据类创建出一个一个具体的对象,利用对象之间的关系进行调用,完成一系列的任务 </p>
-<p>#####　类的定义 </p>
-<p>1.java程序以class为组织单位 </p>
-<p>2.关键字class用来定义类 </p>
-<p><img src="/images/class_helloworld.png" alt></p>
-<p>3.定义类的语法 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[类修饰符] class 类名 &#123; </span><br><span class="line"></span><br><span class="line">//定义属性部分 </span><br><span class="line"></span><br><span class="line">[属性修饰符]  属性1的类型  属性1; </span><br><span class="line"></span><br><span class="line">[属性修饰符]  属性2的类型  属性2; </span><br><span class="line"></span><br><span class="line">… </span><br><span class="line"></span><br><span class="line">[属性修饰符]  属性n的类型  属性n; </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">//定义方法部分 </span><br><span class="line"></span><br><span class="line">方法1; </span><br><span class="line"></span><br><span class="line">方法2; </span><br><span class="line"></span><br><span class="line">… </span><br><span class="line"></span><br><span class="line">方法m; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>4.注意:</p>
+<p><img src="/images/20191014102800.png" alt></p>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><p>1.List集合与数组的用途非常相似,但又有同 </p>
 <ul>
-<li>定义一个类的步骤:定义类名,编写属性,编写方法 </li>
-<li>class是定义类的关键字 </li>
-<li>类的命名规则,即标示符的命名规则,但为了阅读理解方便,约定不使用_,$等特殊字符,类名通常是名词性质,首字母大写,驼峰式 </li>
-<li>属性的定义,与局部变量的定义相同,定义在类体内,方法体外,与方法平级,即全局变量 </li>
-<li>有一点需要强调的是,类的属性,即全局变量,可以不初始化,在使用时,系统会默认初始化,整数均默认为0,小数默认为0.0,char默认为空格,boolean默认为false,引用类型默认为null </li>
-<li>方法的定义,使用动词或动宾形式的短语,首字母小写,驼峰式命名 </li>
-</ul>
-<p>5.例子:定义一个学生类 </p>
-<p><img src="/images/class_student_obj.png" alt></p>
-<h5 id="如何创建和使用对象"><a href="#如何创建和使用对象" class="headerlink" title="如何创建和使用对象"></a>如何创建和使用对象</h5><p>1.定义类,实际上就是定义了一个新的数据类型,根据基本数据类型可以声明变量,自己申明的类也可以声明变量,称为对象 </p>
-<p>2.声明一个对象的语法 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类名  对象名;</span><br></pre></td></tr></table></figure>
-
-<p>3.声明后并没有给对象分配内存空间,要分配内存空间,需要使用new关键字 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类名  对象名  =  new  类名();</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>声明对象并分配内存空间,即为类实例化(从一个抽象的类中具体中一个具体的实例) </li>
-</ul>
-<p>4.实例化对象后,可以访问对象的属性和方法 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对象名.属性名 </span><br><span class="line"></span><br><span class="line">对象名.方法名([参数列表])</span><br></pre></td></tr></table></figure>
-
-<p>实例化一个Student类的对象,并且赋值,调用方法: </p>
-<p><img src="/images/classs_student_test.png" alt><br>5.注意: </p>
-<ul>
-<li>一个类可以实例化出多个对象,不同的对象在内存中是独立的,改变一个对象不会影响其他的对象 </li>
-<li>上面我们看到的例子中,我们在main方法中根据自己定义的类声明了一个局部变量,事实上还可以声明成员变量 </li>
-</ul>
-<p><img src="/images/class_student_chenguan.png" alt></p>
-<h5 id="使用类和对象的优点"><a href="#使用类和对象的优点" class="headerlink" title="使用类和对象的优点"></a>使用类和对象的优点</h5><p>1.与人类的思维习惯一致,把人类解决问题的思维过程转变为程序能够理解的过程 </p>
-<p>2.提高了程序的可重用性,一个类可以创建多个对象实例，增加了重用性 </p>
-<p>3.信息隐藏，提高了程序的可维护性和安全性 ,封装实现了模块化和信息隐藏 ,封装使得在对象外部不能随意访问对象的属性和方法(在学习了方法之后详细体会) </p>
-<h5 id="打包和导入"><a href="#打包和导入" class="headerlink" title="打包和导入"></a>打包和导入</h5><p>1.打包 </p>
-<ul>
-<li>观察package语句 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package com.phome.java.test1;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>注意<ul>
-<li>允许类组成较小的单元(类似文件夹),易于找到和使用相应的文件,方便管理 </li>
-<li>防止命名冲突 </li>
-<li>更好的保护类属性和方法 </li>
-<li>包名之前最好加上唯一的前缀,通常使用组织倒置的网络域名 </li>
-<li>一个类只能有一条package语句 </li>
+<li>数组长途在使用前必须确定,一旦确定不能改变,而List集合长度可变,无需定义 </li>
+<li>数组中必须存放同一类型的数据,Lise集合中可以存放不同数据类型的数据 </li>
+<li>常用的的List集合有ArrayList,LinkedList和Vector,功能与用法基本相同,但内部实现不同 </li>
+<li>List集合已经重写了toString方法,可以将集合中的元素依次输出 </li>
+<li>插入情况多 就用LinkedList,随机访问多就是ArrayList<ul>
+<li>在插入的情况下LinkedList先是在双向链表中找到要插入节点的位置index；找到之后，再插入一个新节点。</li>
+<li>ArrayList是基于数组,每次插入的时候都要调用System.arraycopy,该方法会导致重新计算索引  故而插入慢, </li>
+<li>在随机访问时  ArrayList只要拿到下标就能拿到元素  ,LinkedList需要查找这个元素所在的位置 </li>
 </ul>
 </li>
 </ul>
-<p>2.导入 </p>
+<p>2.List集合中的常用方法 </p>
+<p><img src="/images/20191014103307.png" alt></p>
+<p>3.使用contains等方法时,应该重写类的equals方法,因为这些方法要调用equals方法类比较两个对象是否相等 </p>
 <ul>
-<li><p>为了使用不在同一个包中的类,java使用import关键字导入 </p>
-</li>
-<li><p>观察import语句 </p>
+<li>Student类中重写了eauqls方法: </li>
+</ul>
+<p><img src="/images/20191014103410.png" alt></p>
+<ul>
+<li>进行比较的结果: </li>
+</ul>
+<p><img src="/images/20191014103455.png" alt></p>
+<p>4.ArrayList,LinkedList和Vector的区别 </p>
+<ul>
+<li>Vector为线程安全的,ArrayList和LinkedList非线程安全,Vector性能稍微逊色 </li>
+<li>ArrayList用数组实现,添加大量数据,插入数据等时,效率稍微逊色,但按下标查找时效率很高 </li>
+<li>LinkedList使用链表实现,添加,插入,删除元素时只需对相邻元素进行调整即可,效率很高,但按下标查找时效率较低 </li>
+<li>一般来说,ArrayList保存经常用来查询的数据,LinkedList适用于保存经常进行修改操作的集合 </li>
+</ul>
+<h4 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h4><p>1.Set集合与List集合的很多用法是相同的,但Set集合中的元素是无序的,唯一的,常用的Set集合为HashSet </p>
+<p>2.常用方法,与List基本相同,不再赘述 </p>
+<p>3.Set集合的迭代 </p>
+<ul>
+<li>使用Set的iterator()方法类获取迭代器对象,迭代器是Iterator类的实例 </li>
+<li>使用迭代器的hasNext()方法判断集合中是否还有元素,配合while循环来迭代 </li>
+<li>使用迭代器的next()方法取得集合中的元素 </li>
+</ul>
+<p><img src="/images/20191014103722.png" alt></p>
+<p>4.Set存储基本类型(自动装箱成包装类)和字符串时是不会重复的,但存储我们自定义的类的对象时会出现重复的数据,是因为Set根据hashCode来判断存储位置,如果hashCode 相同,再根据equals方法比较,但我们在没有重写hashCode方法时,对象在内存中的地址不同,会返回不同的hashCode,故会出现两个对象数据一样,但由于hashCode不同而被重复记录在Set中的情况,此时,我们需要重写hashCode方法,使数据相同的对象返回相同的hashCode. </p>
+<ul>
+<li>重写hashCode方法: </li>
+</ul>
+<p><img src="/images/20191014103915.png" alt></p>
+<ul>
+<li>运行结果: </li>
+</ul>
+<p><img src="/images/20191014104008.png" alt></p>
+<ul>
+<li>在编写java程序中,hashCode和equals这两个方法有这样的规律: <ul>
+<li>hashCode()方法返回值相同时,equals()方法比较不一定相等 </li>
+<li>equals()方法比较相等时,hashCode方法返回值是相同的 </li>
+</ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import com.phome.java.test2; </span><br><span class="line"></span><br><span class="line">import java.util.*;</span><br></pre></td></tr></table></figure>
-
+<h4 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h4><p>1.通过List集合存储元素之后,如果想获取某一个特点的对象,操作比较繁琐,需要遍历List,此时我们可以使用Map </p>
+<p>2.Map以键值对的形式存储数据(key–&gt;value) </p>
+<p><img src="/images/20191014104132.png" alt></p>
+<p>3.常用的Map集合为HashMap和Hashtable </p>
 <ul>
-<li><p>系统包和自己定义的包 </p>
-</li>
-<li><p>使用”*”导入一个包中所有的类 </p>
+<li>HashMap的常用方法 </li>
+</ul>
+<p><img src="/images/20191014104229.png" alt></p>
+<ul>
+<li>Map集合中key的维护是依靠Set集合,故key不能重复,添加key相同的映射关系时,后面添加的映射关系会覆盖前面的映射关系 </li>
+<li>HashMap和Hashtable的主要区别: <ul>
+<li>Hashtable是线程安全的,HashMap是非线程安全的,HashMap比Hashtable的性能更高 </li>
+<li>Hashtable不允许使用null值作为key或value,但是HashMap是可以的 </li>
+</ul>
 </li>
 </ul>
+<p>举例: </p>
+<p><img src="/images/20191014104333.png" alt></p>
+<h4 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a>Collections工具类</h4><p>1.Collections类与Arrays类一样都提供了一系列静态方法,只是Arrays主要操作数组,而Collections主要操作List集合,同时还有对Set的相关操作 </p>
+<p>2.Collections类提供了一系列的静态方法,可以使用类名.方法名直接调用 </p>
+<ul>
+<li>常用方法</li>
+</ul>
+<p><img src="/images/20191014104444.png" alt></p>
+<ul>
+<li>在List中查找一个对象时,该对象必须实现Comparable接口 </li>
+</ul>
+<p><img src="/images/20191014104641.png" alt></p>
+<h4 id="泛型-Generic"><a href="#泛型-Generic" class="headerlink" title="泛型(Generic)"></a>泛型(Generic)</h4><p>1.集合中要求装入的是Object类型的对象,故在拿到对象使用的时候要强制类型转换 </p>
+<p>2.泛型可以使集合在实例化时就规定好将来要装入什么类型的对象,从集合中取出元素时,不再需要强制类型转换 </p>
+<ul>
+<li>举例: </li>
+</ul>
+<p><img src="/images/20191014104815.png" alt></p>
+<p>3.自定义的类也可以使用泛型 </p>
+<ul>
+<li>举例: </li>
+</ul>
+<p><img src="/images/20191014104859.png" alt></p>
+<ul>
+<li>结果: </li>
+</ul>
+<p><img src="/images/20191014104933.png" alt> </p>
 
       
     </div>
@@ -401,13 +440,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2013/10/10/一起学java之类与对象/">一起学java之类与对象</a></p>
+        <p><span>本文标题:</span><a href="/2013/07/14/一起学java之集合框架/">一起学java之集合框架</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">程振奇 | smallodd</a></p>
-        <p><span>发布时间:</span>2013-10-10, 11:51:54</p>
-        <p><span>最后更新:</span>2019-10-10, 12:01:49</p>
+        <p><span>发布时间:</span>2013-07-14, 10:25:40</p>
+        <p><span>最后更新:</span>2019-10-14, 10:52:35</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2013/10/10/一起学java之类与对象/" title="一起学java之类与对象">http://blog.visutech.com/2013/10/10/一起学java之类与对象/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.visutech.com/2013/10/10/一起学java之类与对象/　　作者: 程振奇 | smallodd" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2013/07/14/一起学java之集合框架/" title="一起学java之集合框架">http://blog.visutech.com/2013/07/14/一起学java之集合框架/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.visutech.com/2013/07/14/一起学java之集合框架/　　作者: 程振奇 | smallodd" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -427,8 +466,8 @@
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2013/07/10/一起学java之String简介/">
-                    一起学java之String简介
+                <a href="/2013/07/11/一起学java之jdk常用工具类/">
+                    一起学java之jdk常用工具类
                 </a>
             </div>
         
@@ -440,7 +479,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#万物皆对象"><span class="toc-number">1.</span> <span class="toc-text">万物皆对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#如何创建和使用对象"><span class="toc-number">2.</span> <span class="toc-text">如何创建和使用对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用类和对象的优点"><span class="toc-number">3.</span> <span class="toc-text">使用类和对象的优点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#打包和导入"><span class="toc-number">4.</span> <span class="toc-text">打包和导入</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#List"><span class="toc-number">2.</span> <span class="toc-text">List</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Set"><span class="toc-number">3.</span> <span class="toc-text">Set</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Map"><span class="toc-number">4.</span> <span class="toc-text">Map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Collections工具类"><span class="toc-number">5.</span> <span class="toc-text">Collections工具类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#泛型-Generic"><span class="toc-number">6.</span> <span class="toc-text">泛型(Generic)</span></a></li></ol>
         
     </div>
     <style>
@@ -465,21 +504,9 @@
     
 <div class="share">
     
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"一起学java之类与对象　| 小奇的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
 
+    
+        <div class="addthis_sharing_toolbox"></div>
     
 </div>
 
@@ -504,13 +531,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2013/07/10/一起学java之String简介/" title="下一篇: 一起学java之String简介">
+            <a href="/2013/07/11/一起学java之jdk常用工具类/" title="下一篇: 一起学java之jdk常用工具类">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/基于SpringBoot2.x，Quartz的定时任务的动态修改/">基于SpringBoot2.x，Quartz的定时任务的动态修改</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/02/09/玩转spring之Singleton（单例模式） /">玩转spring之Singleton（单例模式）</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/10/10/一起学java之类与对象/">一起学java之类与对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之String简介/">一起学java之String简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之数组/">一起学java之数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/09/一起学java之Java语言程序结构 /">一起学java之Java语言程序结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/09/一起学java之变量,数据类型和运算符 /">一起学java之变量,数据类型和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/01/一起学java之jdk的安装/">一起学java之jdk的安装</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/基于SpringBoot2.x，Quartz的定时任务的动态修改/">基于SpringBoot2.x，Quartz的定时任务的动态修改</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/02/09/玩转spring之Singleton（单例模式） /">玩转spring之Singleton（单例模式）</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/14/一起学java之集合框架/">一起学java之集合框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/11/一起学java之jdk常用工具类/">一起学java之jdk常用工具类</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/11/一起学java之面向对象编程1/">一起学java之面向对象编程1</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之方法/">一起学java之方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之类与对象/">一起学java之类与对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之String简介/">一起学java之String简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之数组/">一起学java之数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/09/一起学java之Java语言程序结构 /">一起学java之Java语言程序结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/09/一起学java之变量,数据类型和运算符 /">一起学java之变量,数据类型和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/01/一起学java之jdk的安装/">一起学java之jdk的安装</a></li></ul>
 
 
 
