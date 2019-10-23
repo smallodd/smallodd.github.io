@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="程振奇 | smallodd">
+
+
+
+<meta name="description" content="final关键字1.final:最终的,final关键字在java中可以修饰类,成员方法,成员变量和局部变量  2.final修饰的类,表示”最终的类”,该类不能被继承,以前使用过的String类,System类,java.util.Scanner类都是被final修饰的">
+<meta name="keywords" content="JAVA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一起学java之面向对象的编程2">
+<meta property="og:url" content="http://blog.visutech.com/2013/07/14/一起学java之面向对象的编程2 /index.html">
+<meta property="og:site_name" content="小奇的博客">
+<meta property="og:description" content="final关键字1.final:最终的,final关键字在java中可以修饰类,成员方法,成员变量和局部变量  2.final修饰的类,表示”最终的类”,该类不能被继承,以前使用过的String类,System类,java.util.Scanner类都是被final修饰的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014110424.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014110553.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014110712.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014111312.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014111411.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014111459.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014111928.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014112109.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014113322.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014113442.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014113551.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191014113655.png">
+<meta property="og:updated_time" content="2019-10-16T07:58:09.664Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一起学java之面向对象的编程2">
+<meta name="twitter:description" content="final关键字1.final:最终的,final关键字在java中可以修饰类,成员方法,成员变量和局部变量  2.final修饰的类,表示”最终的类”,该类不能被继承,以前使用过的String类,System类,java.util.Scanner类都是被final修饰的">
+<meta name="twitter:image" content="http://blog.visutech.com/images/20191014110424.png">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="小奇的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>一起学java之面向对象的编程2 | 小奇的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56ff76c972fc0cf9"></script>
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.jpeg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">程振奇 | smallodd</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">一只假的开发</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:2324589689@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/smallodd/" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="/2324589689" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于Java</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">程振奇 | smallodd</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.jpeg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">程振奇 | smallodd</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">一只假的开发</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:2324589689@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/smallodd/" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="/2324589689" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-一起学java之面向对象的编程2 " class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/07/14/一起学java之面向对象的编程2 /" class="article-date">
+      <time datetime="2013-07-14T03:00:02.000Z" itemprop="datePublished">2013-07-14</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      一起学java之面向对象的编程2
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/一起学java/">一起学java</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h4 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h4><p>1.<code>final</code>:最终的,<code>final</code>关键字在<code>java</code>中可以修饰类,成员方法,成员变量和局部变量 </p>
+<p>2.<code>final</code>修饰的类,表示”最终的类”,该类不能被继承,以前使用过的<code>String</code>类,<code>System</code>类,<code>java.util.Scanner</code>类都是被<code>final</code>修饰的 </p>
+<a id="more"></a>
+<ul>
+<li>语法: </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public final class 类名&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>举例: </li>
+</ul>
+<p><img src="/images/20191014110424.png" alt></p>
+<p>3.<code>final</code>修饰的方法,不能在子类中重写 </p>
+<ul>
+<li>语法: </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public final 返回值类型 方法名 ([参数列表])&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>举例: </li>
+</ul>
+<p><img src="/images/20191014110553.png" alt></p>
+<p>4.<code>final</code>修饰的变量,其值将不能重新赋值,即称为常量 </p>
+<ul>
+<li>语法: </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final 变量类型  变量名 = 初始值;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>举例: </li>
+</ul>
+<p><img src="/images/20191014110712.png" alt></p>
+<ul>
+<li>注意,<code>java</code>中的常量一般由<code>static final</code>同时修饰,常量的命名一般使用大写字母,多个单词之间用下划线分割 </li>
+</ul>
+<h4 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h4><p>1.抽象类是使用<code>abstract</code>修饰的类,包含没有方法实现的抽象方法,抽象方法也用<code>abstract</code>修饰 </p>
+<ul>
+<li><p>举例: </p>
+<ul>
+<li><p>抽象的Pet类,有抽象的shout方法 </p>
+<p><img src="/images/20191014111312.png" alt></p>
+</li>
+<li><p>继承Pet类的Cat类和Dog类,实现了shout方法</p>
+<p><img src="/images/20191014111411.png" alt></p>
+</li>
+<li><p>运行结果: </p>
+<p><img src="/images/20191014111459.png" alt></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>2.抽象类是为了实现多态,并优化继承结构的 </p>
+<p>3.抽象类可能只提供了一个类的部分实现,因此abstract类不能实例化 </p>
+<p>4.抽象类可以有成员变量,可以有一个或多个构造方法,但是这些构造方法不能被客户端调用来创建实例,抽象类的构造方法可以被其子类用super来调用 </p>
+<p>5.原则: </p>
+<ul>
+<li>尽可能的不要从具体类继承 </li>
+<li>抽象类拥有尽可能多的共同代码,以提高代码的重用率 </li>
+</ul>
+<h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><p>1.接口在现实生活中经常遇到，比如：电线插座和插头，螺丝帽的规格，电脑主板上的各种插槽等。接口就是规定了一系列的规格，标准，动作等，不做具体实现。 </p>
+<p>2.接口用interface来声明。一个类中如果不存在数据，只存在抽象方法时，就可以声明为接口。 </p>
+<ul>
+<li>接口声明举例： </li>
+</ul>
+<p><img src="/images/20191014111928.png" alt></p>
+<ul>
+<li>用interface关键字声明接口。接口中的方法不能实现，接口中方法的默认修饰符是public abstract。 </li>
+</ul>
+<p>3.接口与类是并列的概念，类可以被继承，接口只能被实现，实现接口是用关键字implements，一个类同时可以实现多个类中的方法，实现多个接口时，接口之间用逗号分隔。 </p>
+<ul>
+<li>接口实现举例： </li>
+</ul>
+<p><img src="/images/20191014112109.png" alt> </p>
+<ul>
+<li>接口实现用implements关键字，类Cat实现了Pet接口，默认继承了Object类。接口中的所用方法必须全部实现，如果只是部分实现，该类就是抽象类。 </li>
+</ul>
+<p>4.抽象类和接口的比较 </p>
+<ul>
+<li>abstract class在java语言中表示的一种继承关系，一个类只能使用一次继承关系，但是一个类可以实现多个interface。 </li>
+<li>在abstract class中可以有自己的数据成员，非abstract的成员方法和abstract方法，而在interface中，只能够有静态的不能被修改的数据成员（也就必须是static final的，即常量），所有的成员方法必须都是public abstract的。 </li>
+<li>实现抽象类和接口的类必须实现其中的所有抽象方法，抽象类中可以有非抽象的方法（即实现了的方法），而接口中不能有方法实现。 </li>
+<li>一般情况下，在使用继承的时候，优先考虑定义接口，其次考虑定义抽象类。 </li>
+</ul>
+<h4 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h4><p>1.Jdk1.5以后，java引进了一个全新的关键字enum来定义一个枚举类。 </p>
+<p>2.枚举适用于一些数据具有若干特定值得场合，使用方法如同一个类 </p>
+<ul>
+<li>枚举定义举例 </li>
+</ul>
+<p><img src="/images/20191014113322.png" alt></p>
+<ul>
+<li>枚举使用举例 </li>
+</ul>
+<p><img src="/images/20191014113442.png" alt></p>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><p>1.定义在一个public类内部的类即是内部类，出于对一些类使用权限，数据安全，代码隐藏方面的考虑。 </p>
+<p>2.内部类可以分为成员内部类，局部内部类，嵌套内部类，匿名内部类等 </p>
+<ul>
+<li>内部类的使用举例1 </li>
+</ul>
+<p><img src="/images/20191014113551.png" alt></p>
+<ul>
+<li>内部类Bird，可以定义在Boy内部，定义在内部时，外部访问受到限制，有利于数据安全和代码隐蔽。内部类可以被static修饰，也可以被public修饰，但一般情况下内部类不使用public修饰，目的是为了内部类的安全性考虑。内部类可以像外部类一样使用。 </li>
+</ul>
+<ul>
+<li>内部类的使用举例2（匿名内部类） </li>
+</ul>
+<p><img src="/images/20191014113655.png" alt></p>
+<ul>
+<li>在程序设计中，如果接口或者抽象类中需要实现的方法很少，临时使用接口或抽象类时，重新定义一个类单独实现方法又有些麻烦，可以直接使用匿名内部类对接口或者抽象类进行实现。 </li>
+<li>在匿名内部类中访问局部变量name，要求局部变量必须是final变量。 </li>
+</ul>
+<p>3.内部类降低了代码重用性，增加了代码的阅读难度 </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2013/07/14/一起学java之面向对象的编程2 /">一起学java之面向对象的编程2</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">程振奇 | smallodd</a></p>
+        <p><span>发布时间:</span>2013-07-14, 11:00:02</p>
+        <p><span>最后更新:</span>2019-10-16, 15:58:09</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2013/07/14/一起学java之面向对象的编程2 /" title="一起学java之面向对象的编程2">http://blog.visutech.com/2013/07/14/一起学java之面向对象的编程2 /</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.visutech.com/2013/07/14/一起学java之面向对象的编程2 /　　作者: 程振奇 | smallodd" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2013/07/16/一起学java之异常简介/">
+                    一起学java之异常简介
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2013/07/14/一起学java之集合框架/">
+                    一起学java之集合框架
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#final关键字"><span class="toc-number">1.</span> <span class="toc-text">final关键字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#抽象类"><span class="toc-number">2.</span> <span class="toc-text">抽象类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#接口"><span class="toc-number">3.</span> <span class="toc-text">接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#枚举"><span class="toc-number">4.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内部类"><span class="toc-number">5.</span> <span class="toc-text">内部类</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2013/07/16/一起学java之异常简介/" title="上一篇: 一起学java之异常简介">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2013/07/14/一起学java之集合框架/" title="下一篇: 一起学java之集合框架">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/10/17/一起学java之I/O简介/">一起学java之I/O简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/基于SpringBoot2.x，Quartz的定时任务的动态修改/">基于SpringBoot2.x，Quartz的定时任务的动态修改</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/02/09/玩转spring之Singleton（单例模式） /">玩转spring之Singleton（单例模式）</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/17/O简介/">一起学java之I/O简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/16/一起学java之异常简介/">一起学java之异常简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/14/一起学java之面向对象的编程2 /">一起学java之面向对象的编程2</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/14/一起学java之集合框架/">一起学java之集合框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/11/一起学java之jdk常用工具类/">一起学java之jdk常用工具类</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/11/一起学java之面向对象编程1/">一起学java之面向对象编程1</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之方法/">一起学java之方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之类与对象/">一起学java之类与对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之String简介/">一起学java之String简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之数组/">一起学java之数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/09/一起学java之Java语言程序结构 /">一起学java之Java语言程序结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/09/一起学java之变量,数据类型和运算符 /">一起学java之变量,数据类型和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/01/一起学java之jdk的安装/">一起学java之jdk的安装</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2019 程振奇 | smallodd
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</script>
+
+  </div>
+</body>
+</html>

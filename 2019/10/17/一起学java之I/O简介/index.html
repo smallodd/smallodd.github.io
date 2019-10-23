@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="程振奇 | smallodd">
+
+
+
+<meta name="description" content="前言Java的核心库java.io提供了全面的IO接口。包括：文件读写、标准设备输出等。Java中IO是以流为基础进行输入输出的，所有数据被串行化写入输出流，或者从输入流读入。">
+<meta name="keywords" content="程振奇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一起学java之I&#x2F;O简介">
+<meta property="og:url" content="http://blog.visutech.com/2019/10/17/一起学java之I/O简介/index.html">
+<meta property="og:site_name" content="小奇的博客">
+<meta property="og:description" content="前言Java的核心库java.io提供了全面的IO接口。包括：文件读写、标准设备输出等。Java中IO是以流为基础进行输入输出的，所有数据被串行化写入输出流，或者从输入流读入。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://blog.visutech.com/images/20191017095307.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191017095417.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191017095449.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191017095707.png">
+<meta property="og:updated_time" content="2019-10-17T01:59:32.789Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一起学java之I&#x2F;O简介">
+<meta name="twitter:description" content="前言Java的核心库java.io提供了全面的IO接口。包括：文件读写、标准设备输出等。Java中IO是以流为基础进行输入输出的，所有数据被串行化写入输出流，或者从输入流读入。">
+<meta name="twitter:image" content="http://blog.visutech.com/images/20191017095307.png">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="小奇的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>一起学java之I/O简介 | 小奇的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56ff76c972fc0cf9"></script>
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.jpeg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">程振奇 | smallodd</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">一只假的开发</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:2324589689@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/smallodd/" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="/2324589689" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于Java</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">程振奇 | smallodd</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.jpeg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">程振奇 | smallodd</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">一只假的开发</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:2324589689@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/smallodd/" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="/2324589689" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-一起学java之I/O简介" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/10/17/一起学java之I/O简介/" class="article-date">
+      <time datetime="2019-10-17T01:48:34.000Z" itemprop="datePublished">2019-10-17</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      一起学java之I/O简介
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>Java的核心库java.io提供了全面的IO接口。包括：文件读写、标准设备输出等。Java中IO是以流为基础进行输入输出的，所有数据被串行化写入输出流，或者从输入流读入。</p>
+<a id="more"></a>
+<h4 id="File文件操作"><a href="#File文件操作" class="headerlink" title="File文件操作"></a>File文件操作</h4><p>1.Java如何描述文件系统:File类 </p>
+<p>2.File类中常用的方法: </p>
+<p><img src="/images/20191017095307.png" alt></p>
+<p>3.方法举例 </p>
+<p><img src="/images/20191017095417.png" alt></p>
+<p><img src="/images/20191017095449.png" alt></p>
+<h4 id="IO流结构"><a href="#IO流结构" class="headerlink" title="IO流结构"></a>IO流结构</h4><p>1.IO流的用途,进行文件等的读写操作 </p>
+<p>2.IO流的概念:流可以理解为连续的数据 </p>
+<p>3.IO流的分类: </p>
+<ul>
+<li>输入流和输出流 </li>
+<li>文件操作流和内存操作流等 </li>
+<li>字节操作流和字符操作流等 </li>
+</ul>
+<p>4.结构图 </p>
+<p><img src="/images/20191017095707.png" alt></p>
+<p>5.一般来说,IO流的后缀有InputStream,OutputStream,Reader,Writer四种,分别代表字节输入流,字节输出流,字符输入流,字符输出流,前缀则代表了流的操作对象 </p>
+<p>6.在对文件的读写操作中,字节流可以读写二进制文件,字符流用来读写文本文件. </p>
+<ul>
+<li>所谓二进制文件,指文件无字符编码格式,均由字节(Byte)组成,图片文件,word文档等均为二进制文件 </li>
+<li>文本文件,是一种特殊的二进制文件,也由字符组成,但需要通过特定的字符编码格式读取或写入,否则会出现乱码,可以用记事本打开的文件都是文本文件 </li>
+</ul>
+<h4 id="使用字节流读取文件"><a href="#使用字节流读取文件" class="headerlink" title="使用字节流读取文件"></a>使用字节流读取文件</h4><p>1.使用FileInputStream </p>
+<ul>
+<li>步骤: <ul>
+<li>打开文件 </li>
+<li>按字节流读取文件 </li>
+<li>关闭文件 </li>
+</ul>
+</li>
+</ul>
+<p>举例 </p>
+<p>例1 </p>
+<p>注意: </p>
+<p>read方法返回一个-1到255之间的一个整数,即一个字节,如果返回-1说明读到了文件尾 </p>
+<p>如果1.txt中为英文,可以在控制台显示,如果1.txt中有中文的话,控制台就会出现乱码,可见字节流在读取文本文件时的不足 </p>
+<p>例2 </p>
+<p>注意:FileInputStream效率较低,BufferedInputStream效率较高 </p>
+<p>使用字节流写文件 </p>
+<p>使用OutputStream </p>
+<p>步骤:开发文件,输出,关闭文件 </p>
+<p>举例 </p>
+<p>例1 </p>
+<p>注意:写入的是ASCII码值,文件不存在时会自动创建文件 </p>
+<p>例2 </p>
+<p>注意:FileOutputStream也存在性能问题,可以和BufferedOutputStream配合使用 </p>
+<p>文件拷贝 </p>
+<p>举例: </p>
+<p>使用字符流读写文件 </p>
+<p>字符流的操作方法和字节流基本相同,字符流会根据当前的操作系统与语言环境选择适当的字符编码格式读写文件,适合读取文本文件,因为字符流会对文件内容进行编码,所以不适合用于读取二进制文件. </p>
+<p>举例 </p>
+<p>例1 </p>
+<p>例2 </p>
+<p>注意:BufferedWriter提供了输出整行字符串的方法,需注意换行时使用newLine方法,而不是输出一个”\n” </p>
+<p>使用其他常用流 </p>
+<p>对象输入输出流,ObjectInputStream和ObjectOutputStream能够针对对象进行读写操作 </p>
+<p>举例: </p>
+<p>注意: </p>
+<p>类必须实现java.io.Serializable接口才能将实例转换为流操作 </p>
+<p>通过writeObject方法可以将实现了序列化接口的类实例写入流中 </p>
+<p>通过readObject方法可以从流中将实现了序列化接口的类实例读取出来 </p>
+<p>字节输入输出流:InputStreamReader和OutputStreamReader能够通过制定的编码格式将字节流转换为字符流,并进行读写操作 </p>
+<p>举例: </p>
+<p>Properties类应用 </p>
+<p>Properties是什么? </p>
+<pre><code>java提供了Properties类简化配置文件的读写操作,Properties与HashMap相似,属于Map集合,适合读写键值对形式的配置文件 
+
+Properties中提供了load和store两个方法,方便从文件中读写集合的内容 </code></pre><p>举例: </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/10/17/一起学java之I/O简介/">一起学java之I/O简介</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">程振奇 | smallodd</a></p>
+        <p><span>发布时间:</span>2019-10-17, 09:48:34</p>
+        <p><span>最后更新:</span>2019-10-17, 09:59:32</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/10/17/一起学java之I/O简介/" title="一起学java之I/O简介">http://blog.visutech.com/2019/10/17/一起学java之I/O简介/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.visutech.com/2019/10/17/一起学java之I/O简介/　　作者: 程振奇 | smallodd" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/08/15/基于SpringBoot2.x，Quartz的定时任务的动态修改/">
+                    基于SpringBoot2.x，Quartz的定时任务的动态修改
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#File文件操作"><span class="toc-number">2.</span> <span class="toc-text">File文件操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IO流结构"><span class="toc-number">3.</span> <span class="toc-text">IO流结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用字节流读取文件"><span class="toc-number">4.</span> <span class="toc-text">使用字节流读取文件</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/08/15/基于SpringBoot2.x，Quartz的定时任务的动态修改/" title="下一篇: 基于SpringBoot2.x，Quartz的定时任务的动态修改">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/10/17/一起学java之I/O简介/">一起学java之I/O简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/基于SpringBoot2.x，Quartz的定时任务的动态修改/">基于SpringBoot2.x，Quartz的定时任务的动态修改</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/02/09/玩转spring之Singleton（单例模式） /">玩转spring之Singleton（单例模式）</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/17/O简介/">一起学java之I/O简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/16/一起学java之异常简介/">一起学java之异常简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/14/一起学java之面向对象的编程2 /">一起学java之面向对象的编程2</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/14/一起学java之集合框架/">一起学java之集合框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/11/一起学java之jdk常用工具类/">一起学java之jdk常用工具类</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/11/一起学java之面向对象编程1/">一起学java之面向对象编程1</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之方法/">一起学java之方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之类与对象/">一起学java之类与对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之String简介/">一起学java之String简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/10/一起学java之数组/">一起学java之数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/09/一起学java之Java语言程序结构 /">一起学java之Java语言程序结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/09/一起学java之变量,数据类型和运算符 /">一起学java之变量,数据类型和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/07/01/一起学java之jdk的安装/">一起学java之jdk的安装</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2019 程振奇 | smallodd
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</script>
+
+  </div>
+</body>
+</html>
