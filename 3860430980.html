@@ -14,12 +14,12 @@
 <meta name="keywords" content="程振奇">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈app中数据收集">
-<meta property="og:url" content="https://blog.visutech.cn/3860430979.html">
+<meta property="og:url" content="https://blog.visutech.cn/3860430980.html">
 <meta property="og:site_name" content="小奇的博客">
 <meta property="og:description" content="前言数据,一个在代码生涯中必不可少的成员.在一个app运营的时候一定要监控和收集大量的数据作为分析的资本.可以说数据即一切.那么哪些数据是需要我们关心并且去收集  统计 近而分析他呢.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://blog.visutech.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-11-11T04:01:44.458Z">
+<meta property="og:updated_time" content="2019-11-11T07:03:14.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈app中数据收集">
 <meta name="twitter:description" content="前言数据,一个在代码生涯中必不可少的成员.在一个app运营的时候一定要监控和收集大量的数据作为分析的资本.可以说数据即一切.那么哪些数据是需要我们关心并且去收集  统计 近而分析他呢.">
@@ -182,7 +182,7 @@
 <li>埋点行为 即用户点击了哪些</li>
 <li>app激活数据 即有哪些手机安装了app</li>
 </ul>
-<h3 id="说明时候上班app本地数据"><a href="#说明时候上班app本地数据" class="headerlink" title="说明时候上班app本地数据"></a>说明时候上班app本地数据</h3><p>app端在什么时候上报数据呢?用户在使用app过程中肯定会出现网络不好的情况,那么我们如何保证在没有网络的情况下准确上报数据呢?很简单,持久化到本地呗,那么我们什么时候开始上报这些数据呢?通常来讲,用户使用app的时候经常会做以下操作: </p>
+<h3 id="什么时候上报app本地数据"><a href="#什么时候上报app本地数据" class="headerlink" title="什么时候上报app本地数据"></a>什么时候上报app本地数据</h3><p>app端在什么时候上报数据呢?用户在使用app过程中肯定会出现网络不好的情况,那么我们如何保证在没有网络的情况下准确上报数据呢?很简单,持久化到本地呗,那么我们什么时候开始上报这些数据呢?通常来讲,用户使用app的时候经常会做以下操作: </p>
 <ul>
 <li>用户打开app</li>
 <li>用户在app界面按下home键</li>
@@ -514,9 +514,9 @@
 
  
             <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="https://blog.visutech.cn/3860430979.html">浅谈app中数据收集</a></li>
+            <li><strong>本文标题：</strong><a href="https://blog.visutech.cn/3860430980.html">浅谈app中数据收集</a></li>
             <li><strong>本文作者：</strong><a href="https://blog.visutech.cn">程振奇 | smallodd</a></li>
-            <li><strong>本文链接：</strong><a href="https://blog.visutech.cn/3860430979.html">https://blog.visutech.cn/3860430979.html</a></li>
+            <li><strong>本文链接：</strong><a href="https://blog.visutech.cn/3860430980.html">https://blog.visutech.cn/3860430980.html</a></li>
             <li><strong>发布时间：</strong>2017-10-11</li>
            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
@@ -592,13 +592,18 @@
     <div class="card-content">
         <h3 class="title is-5 has-text-weight-normal">评论</h3>
         
-<div id="SOHUCS" sid="3860430979.html"></div>
-<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-window.changyan.api.config({
-    appid: 'cyttwqrBR',
-    conf: '8d6e1f328fe9c9f9ae7fffc2dccf009a'
-});
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: '4o2bPCDQdabJ5TDJbzpt8EUh-gzGzoHsz',
+        app_key: 'A8M41EJDeklLXVPVXUOIJDvu',
+        placeholder: 'O(∩_∩)O哈哈~'
+    });
 </script>
 
     </div>
@@ -749,9 +754,9 @@ window.changyan.api.config({
         <span class="has-mr-6">3</span>
         <span>app本地数据的分类</span>
         </a></li><li>
-        <a class="is-flex" href="#说明时候上班app本地数据">
+        <a class="is-flex" href="#什么时候上报app本地数据">
         <span class="has-mr-6">4</span>
-        <span>说明时候上班app本地数据</span>
+        <span>什么时候上报app本地数据</span>
         </a></li><li>
         <a class="is-flex" href="#收集哪些数据">
         <span class="has-mr-6">5</span>
