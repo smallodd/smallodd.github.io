@@ -15,33 +15,23 @@
 
 
 
-<meta name="description" content="static修饰符1.static,静态   在java中,static用来修饰类的成员变量,方法等  static修饰类的成员变量,称为类的静态变量,static修饰类的方法,称为静态方法">
-<meta name="keywords" content="JAVA">
+<meta name="description" content="Factory模式1.工厂模式也是我们编程中使用的最广泛的设计模式之一，工厂模式主要用来实例化对象，代替new操作。">
+<meta name="keywords" content="spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一起学java之面向对象编程1">
-<meta property="og:url" content="http://blog.visutech.com/2013/07/11/一起学java之面向对象编程1/index.html">
+<meta property="og:title" content="玩转spring之Factory（工厂模式）">
+<meta property="og:url" content="http://blog.visutech.com/2014/02/26/玩转spring之Factory（工厂模式）/index.html">
 <meta property="og:site_name" content="小奇的博客">
-<meta property="og:description" content="static修饰符1.static,静态   在java中,static用来修饰类的成员变量,方法等  static修饰类的成员变量,称为类的静态变量,static修饰类的方法,称为静态方法">
+<meta property="og:description" content="Factory模式1.工厂模式也是我们编程中使用的最广泛的设计模式之一，工厂模式主要用来实例化对象，代替new操作。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://blog.visutech.com/images/2019101104744.png">
-<meta property="og:image" content="http://blog.visutech.com/images/20191011105018.png">
-<meta property="og:image" content="http://blog.visutech.com/images/20191011105515.png">
-<meta property="og:image" content="http://blog.visutech.com/images/20191011105617.png">
-<meta property="og:image" content="http://blog.visutech.com/images/20191011110015.png">
-<meta property="og:image" content="http://blog.visutech.com/images/20191011110335.png">
-<meta property="og:image" content="http://blog.visutech.com/images/20191011110456.png">
-<meta property="og:image" content="http://blog.visutech.com/images/20191011111847.png">
-<meta property="og:image" content="http://blog.visutech.com/images/20191011110832.png">
-<meta property="og:image" content="http://blog.visutech.com/images/20191011111129.png">
-<meta property="og:image" content="http://blog.visutech.com/images/20191011111432.png">
-<meta property="og:image" content="http://blog.visutech.com/images/20191011111533.png">
-<meta property="og:image" content="http://blog.visutech.com/images/20191011111635.png">
-<meta property="og:image" content="http://blog.visutech.com/images/20191011111715.png">
-<meta property="og:updated_time" content="2019-10-11T03:25:36.959Z">
+<meta property="og:image" content="http://blog.visutech.com/images/20191028-142927.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191028-143016.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191028-143135.png">
+<meta property="og:image" content="http://blog.visutech.com/images/20191028-143210.png">
+<meta property="og:updated_time" content="2019-10-28T06:33:22.771Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一起学java之面向对象编程1">
-<meta name="twitter:description" content="static修饰符1.static,静态   在java中,static用来修饰类的成员变量,方法等  static修饰类的成员变量,称为类的静态变量,static修饰类的方法,称为静态方法">
-<meta name="twitter:image" content="http://blog.visutech.com/images/2019101104744.png">
+<meta name="twitter:title" content="玩转spring之Factory（工厂模式）">
+<meta name="twitter:description" content="Factory模式1.工厂模式也是我们编程中使用的最广泛的设计模式之一，工厂模式主要用来实例化对象，代替new操作。">
+<meta name="twitter:image" content="http://blog.visutech.com/images/20191028-142927.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -73,7 +63,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>一起学java之面向对象编程1 | 小奇的博客</title>
+<title>玩转spring之Factory（工厂模式） | 小奇的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -284,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-一起学java之面向对象编程1" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-玩转spring之Factory（工厂模式）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2013/07/11/一起学java之面向对象编程1/" class="article-date">
-      <time datetime="2013-07-11T02:45:51.000Z" itemprop="datePublished">2013-07-11</time>
+      <a href="/2014/02/26/玩转spring之Factory（工厂模式）/" class="article-date">
+      <time datetime="2014-02-26T06:16:37.000Z" itemprop="datePublished">2014-02-26</time>
 </a>
 
 
@@ -303,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      一起学java之面向对象编程1
+      玩转spring之Factory（工厂模式）
     </h1>
   
 
@@ -312,13 +302,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/一起学java/">一起学java</a>
+    <a class="article-category-link" href="/categories/玩转spring/">玩转spring</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -328,153 +318,23 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h5 id="static修饰符"><a href="#static修饰符" class="headerlink" title="static修饰符"></a>static修饰符</h5><p>1.static,静态 </p>
-<ul>
-<li>在java中,static用来修饰类的成员变量,方法等 </li>
-<li>static修饰类的成员变量,称为类的静态变量,static修饰类的方法,称为静态方法 <a id="more"></a></li>
-<li>在程序运行时,第一次加载类的时候,初始化静态变量,静态变量会一直到应用程序结束才被系统销毁 </li>
-<li>静态变量不依赖类的某一个实例,所有的实例共享同一份静态变量 </li>
-<li>静态方法也不依赖类的某一个实例 </li>
-</ul>
-<p><img src="/images/2019101104744.png" alt></p>
-<p>2.静态变量和静态方法的调用 </p>
-<ul>
-<li>语法: </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">类名.静态变量名; </span><br><span class="line"></span><br><span class="line">类名.静态方法名();</span><br></pre></td></tr></table></figure>
+        <h4 id="Factory模式"><a href="#Factory模式" class="headerlink" title="Factory模式"></a>Factory模式</h4><p>1.工厂模式也是我们编程中使用的最广泛的设计模式之一，工厂模式主要用来实例化对象，代替new操作。 </p>
+<a id="more"></a>
 
+<h4 id="工厂模式的简单实现"><a href="#工厂模式的简单实现" class="headerlink" title="工厂模式的简单实现"></a>工厂模式的简单实现</h4><p>1.举这样一个例子，假如有一个大老板，需要买一辆车，但是他并不知道现在市面上有些什么车，他来到汽车销售中心，对招待说，我有这么些钱，我要买车，你看这办吧，这个时候招待就会根据老板具体有多少钱而向他销售不同价位款式的汽车。下面我们用代码来模拟 </p>
+<p>2.首先，定义一个接口Car </p>
+<p><img src="/images/20191028-142927.png" alt></p>
+<p>3.创建多个Car接口的实现类 </p>
+<p><img src="/images/20191028-143016.png" alt></p>
+<p>4.实现CarFactory </p>
+<p><img src="/images/20191028-143135.png" alt></p>
+<p>5.main方法测试 </p>
+<p><img src="/images/20191028-143210.png" alt></p>
+<p>6.在该工厂模式的简单实现中，可以发现工厂模式使用时的一些特点 </p>
 <ul>
-<li>由于静态变量被所有的对象共有,因此在一个对象中改变静态变量,其他的对象中也会看到变化 </li>
-<li>举例: </li>
-</ul>
-<p><img src="/images/20191011105018.png" alt></p>
-<p>3.比较静态变量和成员变量 </p>
-<p><img src="/images/20191011105515.png" alt></p>
-<p>4.比较静态方法和普通方法 </p>
-<p><img src="/images/20191011105617.png" alt></p>
-<p>5.静态代码块 </p>
-<ul>
-<li>静态代码块可以使类在第一次加载后进行一些操作,一般情况下用来初始化静态变量 </li>
-<li>语法 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">static&#123; </span><br><span class="line"></span><br><span class="line">//语句块 </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="Object-Oriented"><a href="#Object-Oriented" class="headerlink" title="Object Oriented"></a>Object Oriented</h5><ul>
-<li>OO:Object Oriented,面向对象 </li>
-<li>OOA:Object Oriented Analysis,面向对象的分析 </li>
-<li>OOD:Object Oriented Design,面向对象设计 </li>
-<li>OOP:Object Oriented Programming,面向对象的编程 <ul>
-<li>面向对象最大的特点是,程序研发人员可以根据具体的问题,设计出任何需要的类,用来解决问题.面向对象是一种思想!!! </li>
-</ul>
-</li>
-</ul>
-<h5 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h5><p>1.封装将对象的属性和方法结合在一起,统一提供对外的访问权限,分装可以将类的使用者和设计者分开,设计者可以决定哪些内容可以提供给使用者,使用者在使用的时候不需要了解设计者是如何实现的 </p>
-<p><img src="/images/20191011110015.png" alt></p>
-<p>2.在java中,类把数据和方法封装到一起,对数据和方法操作起到一种保护作用. </p>
-<p>3.用public,private,protected来控制对属性和方法的访问 </p>
-<p>4.控制权限的修饰符 </p>
-<ul>
-<li>public <ul>
-<li>即公开的,用public修饰的属性和方法,其他任何类都可以访问 </li>
-</ul>
-</li>
-<li>private <ul>
-<li>即私有的,用private修饰的属性和方法,其他任何类都不能访问,只有在当前类内部才可以访问 </li>
-</ul>
-</li>
-<li>protected <ul>
-<li>即表示受保护的,用protected修饰的属性和方法,允许相同包中的其他类(包括子类)或非相同包的子类访问 </li>
-</ul>
-</li>
-<li>缺省修饰符 <ul>
-<li>缺省修饰符的属性和方法允许相同包中的其他类进行访问,不允许其他包中的类(包括子类)访问 </li>
-</ul>
-</li>
-</ul>
-<p>5.一般情况下,属性用private修饰,并为private修饰的属性提供一组get/set方法(属性访问器). </p>
-<p><img src="/images/20191011110335.png" alt></p>
-<p>6.public修饰符还可以用来修饰类,可以用来修饰类的修饰符如下: </p>
-<p><img src="/images/20191011110456.png" alt></p>
-<h5 id="方法重载-Overload"><a href="#方法重载-Overload" class="headerlink" title="方法重载(Overload)"></a>方法重载(Overload)</h5><p>1.System.out.println()方法是重载过的 </p>
-<p>2.在同一个类中,一个方法名称可以定义多个方法,只要方法参数列表不同即可,这叫做方法的重载 </p>
-<p><img src="/images/20191011111847.png" alt></p>
-<p>3.方法重载要求方法名相同,方法参数列表不同,方法的参数列表不同包括 </p>
-<ul>
-<li>方法参数的数量不同 </li>
-<li>方法参数的类型不同 </li>
-<li>相同数量参数中,不同参数类型在方法参数列表中的顺序不同 </li>
-</ul>
-<h5 id="继承-extends"><a href="#继承-extends" class="headerlink" title="继承(extends)"></a>继承(extends)</h5><p>1.事物之间可能存在包含与被包含的关系,程序中设计出的类也会有这种关系.java中使用继承机制描述这一关系,被继承的类称为父类,继承父类的类,称为子类.继承可以减少代码量,方便维护,使程序更符合实际,更符合人的思维习惯 </p>
-<p>2.java中继承使用extends关键字实现,子类继承父类的属性和方法(构造方法除外), </p>
-<p>3.构造方法不能继承,因此继承的子类在默认情况下只有一个无参构造方法 </p>
-<p>4.在java继承中,子类可以访问父类的public,protected修饰的属性和方法,不能访问父类中private修饰的属性和方法;如果子类与父类不在同一个包中声明,那么父类中使用缺省修饰符的属性和方法在子类中也不能被访问. </p>
-<ul>
-<li>权限修饰符总结 </li>
-</ul>
-<p><img src="/images/20191011110832.png" alt></p>
-<ul>
-<li>总结： <ul>
-<li>propected，在同包和子类中访问 </li>
-<li>default，在同包中访问 </li>
-</ul>
-</li>
-</ul>
-<p>5.子类继承后可以重写父类的方法(Override),方法重写必须满足如下要求 </p>
-<ul>
-<li>重写方法和被重写方法必须具有相同的方法名 </li>
-<li>重写方法和被重写方法必须具有相同的参数列表 </li>
-<li>重写方法的返回值类型必须和被重写方法的返回值类型相同或者是其子类 </li>
-<li>重写方法的不能缩小被重写方法的访问权限 </li>
-</ul>
-<p>6.在new子类对象时,首先会调用父类默认无参的构造方法,再调用子类的构造方法,但可以通过super关键字,指定使用父类的某一个构造方法,但super要出现在构造方法的最前面,否则报错. </p>
-<ul>
-<li>super关键字,指向父类对象 </li>
-</ul>
-<p>7.Object类 </p>
-<ul>
-<li>java中,Object类是所有类的父类,所有类默认继承Object类,都具有Object类的方法和属性 </li>
-<li>Object类能够被外界访问的,常用的方法有: </li>
-</ul>
-<p><img src="/images/20191011111129.png" alt></p>
-<ul>
-<li><p>关于toString方法 </p>
-<ul>
-<li>System.out.println()方法可以传入任何参数,包括基本类型和引用类型 </li>
-<li>当用System.out.println()输出一个对象时,首先调用该对象的toString()方法 </li>
-<li>Object类的toString()方法默认输出对象的内存地址 </li>
-<li>经常在类中重写toString()方法. </li>
-</ul>
-</li>
-<li><p>关于equals()方法 </p>
-<ul>
-<li>equals()方法默认比较两个对象的地址 </li>
-<li>如需比较两个对象的内容,需要重写该方法,实际应用中,经常需要重写该方法 </li>
-<li>String类已经重写了该方法 </li>
-</ul>
-</li>
-</ul>
-<h5 id="多态-polymorphic"><a href="#多态-polymorphic" class="headerlink" title="多态(polymorphic)"></a>多态(polymorphic)</h5><p>1.多态:同一种事物,同一种方法,由于条件或环境不同,产生的结果也不同 </p>
-<p>2.方法重载即是多态,称为设计时多态 </p>
-<p>3.在java中,把子类的对像赋值给父类,用父类的引用调用方法的时候,具体执行方法的是子类的对象,也是一种多态形式,称为运行时多态 </p>
-<ul>
-<li><p>举例: </p>
-<ul>
-<li><p>Shape类,有计算面积的area()方法 </p>
-<p><img src="/images/20191011111432.png" alt></p>
-</li>
-<li><p>Circle类,继承Shape,重写area()方法 </p>
-<p><img src="/images/20191011111533.png" alt></p>
-</li>
-<li><p>Square类,继承Shape,重写area()方法 </p>
-<p><img src="/images/20191011111635.png" alt></p>
-</li>
-<li><p>结果 </p>
-<p><img src="/images/20191011111715.png" alt></p>
-</li>
-</ul>
-</li>
+<li>在编码时不能预见需要创建哪一种类的实例 </li>
+<li>一个类使用它的子类来创建对象 </li>
+<li>开发人员不希望将创建了哪个类的实例以及如何创建实例的信息暴露给外部程序 </li>
 </ul>
 
       
@@ -484,13 +344,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2013/07/11/一起学java之面向对象编程1/">一起学java之面向对象编程1</a></p>
+        <p><span>本文标题:</span><a href="/2014/02/26/玩转spring之Factory（工厂模式）/">玩转spring之Factory（工厂模式）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">程振奇 | smallodd</a></p>
-        <p><span>发布时间:</span>2013-07-11, 10:45:51</p>
-        <p><span>最后更新:</span>2019-10-11, 11:25:36</p>
+        <p><span>发布时间:</span>2014-02-26, 14:16:37</p>
+        <p><span>最后更新:</span>2019-10-28, 14:33:22</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2013/07/11/一起学java之面向对象编程1/" title="一起学java之面向对象编程1">http://blog.visutech.com/2013/07/11/一起学java之面向对象编程1/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.visutech.com/2013/07/11/一起学java之面向对象编程1/　　作者: 程振奇 | smallodd" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2014/02/26/玩转spring之Factory（工厂模式）/" title="玩转spring之Factory（工厂模式）">http://blog.visutech.com/2014/02/26/玩转spring之Factory（工厂模式）/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.visutech.com/2014/02/26/玩转spring之Factory（工厂模式）/　　作者: 程振奇 | smallodd" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -503,15 +363,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2013/07/11/一起学java之jdk常用工具类/">
-                    一起学java之jdk常用工具类
+                <a href="/2017/10/11/浅谈app中数据收集/">
+                    浅谈app中数据收集
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2013/07/10/一起学java之方法/">
-                    一起学java之方法
+                <a href="/2014/02/09/玩转spring之Singleton（单例模式） /">
+                    玩转spring之Singleton（单例模式）
                 </a>
             </div>
         
@@ -523,7 +383,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#static修饰符"><span class="toc-number">1.</span> <span class="toc-text">static修饰符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Object-Oriented"><span class="toc-number">2.</span> <span class="toc-text">Object Oriented</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#封装"><span class="toc-number">3.</span> <span class="toc-text">封装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#方法重载-Overload"><span class="toc-number">4.</span> <span class="toc-text">方法重载(Overload)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#继承-extends"><span class="toc-number">5.</span> <span class="toc-text">继承(extends)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#多态-polymorphic"><span class="toc-number">6.</span> <span class="toc-text">多态(polymorphic)</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Factory模式"><span class="toc-number">1.</span> <span class="toc-text">Factory模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#工厂模式的简单实现"><span class="toc-number">2.</span> <span class="toc-text">工厂模式的简单实现</span></a></li></ol>
         
     </div>
     <style>
@@ -567,7 +427,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2013/07/11/一起学java之jdk常用工具类/" title="上一篇: 一起学java之jdk常用工具类">
+            <a href="/2017/10/11/浅谈app中数据收集/" title="上一篇: 浅谈app中数据收集">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -575,7 +435,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2013/07/10/一起学java之方法/" title="下一篇: 一起学java之方法">
+            <a href="/2014/02/09/玩转spring之Singleton（单例模式） /" title="下一篇: 玩转spring之Singleton（单例模式）">
                 <i class="fa fa-angle-right"></i>
             </a>
         
