@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>一起学java之集合框架 - 小奇的博客</title>
+
+
+    <meta name="description" content="概述1.数组长度一旦确定,就无法更改,除非建立新的数组,比较浪费内存,操作不方便,java为我们提供了许多容器类  2.容器各有特点,使用时视情况而定">
+<meta name="keywords" content="JAVA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一起学java之集合框架">
+<meta property="og:url" content="https://blog.visutech.cn/8847.html">
+<meta property="og:site_name" content="小奇的博客">
+<meta property="og:description" content="概述1.数组长度一旦确定,就无法更改,除非建立新的数组,比较浪费内存,操作不方便,java为我们提供了许多容器类  2.容器各有特点,使用时视情况而定">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://blog.visutech.cn/images/og_image.png">
+<meta property="og:updated_time" content="2019-10-14T02:52:35.968Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一起学java之集合框架">
+<meta name="twitter:description" content="概述1.数组长度一旦确定,就无法更改,除非建立新的数组,比较浪费内存,操作不方便,java为我们提供了许多容器类  2.容器各有特点,使用时视情况而定">
+<meta name="twitter:image" content="https://blog.visutech.cn/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/visutech.png" alt="一起学java之集合框架" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">类别</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2013-07-14T02:25:40.000Z">2013-07-14</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/一起学java/">一起学java</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9 分钟 读完 (大约 1292 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                一起学java之集合框架
+            
+        </h1>
+        <div class="content">
+            <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>1.数组长度一旦确定,就无法更改,除非建立新的数组,比较浪费内存,操作不方便,java为我们提供了许多容器类 </p>
+<p>2.容器各有特点,使用时视情况而定 </p>
+<a id="more"></a>
+<p><img src="/images/20191014102800.png" alt></p>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><p>1.List集合与数组的用途非常相似,但又有同 </p>
+<ul>
+<li>数组长途在使用前必须确定,一旦确定不能改变,而List集合长度可变,无需定义 </li>
+<li>数组中必须存放同一类型的数据,Lise集合中可以存放不同数据类型的数据 </li>
+<li>常用的的List集合有ArrayList,LinkedList和Vector,功能与用法基本相同,但内部实现不同 </li>
+<li>List集合已经重写了toString方法,可以将集合中的元素依次输出 </li>
+<li>插入情况多 就用LinkedList,随机访问多就是ArrayList<ul>
+<li>在插入的情况下LinkedList先是在双向链表中找到要插入节点的位置index；找到之后，再插入一个新节点。</li>
+<li>ArrayList是基于数组,每次插入的时候都要调用System.arraycopy,该方法会导致重新计算索引  故而插入慢, </li>
+<li>在随机访问时  ArrayList只要拿到下标就能拿到元素  ,LinkedList需要查找这个元素所在的位置 </li>
+</ul>
+</li>
+</ul>
+<p>2.List集合中的常用方法 </p>
+<p><img src="/images/20191014103307.png" alt></p>
+<p>3.使用contains等方法时,应该重写类的equals方法,因为这些方法要调用equals方法类比较两个对象是否相等 </p>
+<ul>
+<li>Student类中重写了eauqls方法: </li>
+</ul>
+<p><img src="/images/20191014103410.png" alt></p>
+<ul>
+<li>进行比较的结果: </li>
+</ul>
+<p><img src="/images/20191014103455.png" alt></p>
+<p>4.ArrayList,LinkedList和Vector的区别 </p>
+<ul>
+<li>Vector为线程安全的,ArrayList和LinkedList非线程安全,Vector性能稍微逊色 </li>
+<li>ArrayList用数组实现,添加大量数据,插入数据等时,效率稍微逊色,但按下标查找时效率很高 </li>
+<li>LinkedList使用链表实现,添加,插入,删除元素时只需对相邻元素进行调整即可,效率很高,但按下标查找时效率较低 </li>
+<li>一般来说,ArrayList保存经常用来查询的数据,LinkedList适用于保存经常进行修改操作的集合 </li>
+</ul>
+<h4 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h4><p>1.Set集合与List集合的很多用法是相同的,但Set集合中的元素是无序的,唯一的,常用的Set集合为HashSet </p>
+<p>2.常用方法,与List基本相同,不再赘述 </p>
+<p>3.Set集合的迭代 </p>
+<ul>
+<li>使用Set的iterator()方法类获取迭代器对象,迭代器是Iterator类的实例 </li>
+<li>使用迭代器的hasNext()方法判断集合中是否还有元素,配合while循环来迭代 </li>
+<li>使用迭代器的next()方法取得集合中的元素 </li>
+</ul>
+<p><img src="/images/20191014103722.png" alt></p>
+<p>4.Set存储基本类型(自动装箱成包装类)和字符串时是不会重复的,但存储我们自定义的类的对象时会出现重复的数据,是因为Set根据hashCode来判断存储位置,如果hashCode 相同,再根据equals方法比较,但我们在没有重写hashCode方法时,对象在内存中的地址不同,会返回不同的hashCode,故会出现两个对象数据一样,但由于hashCode不同而被重复记录在Set中的情况,此时,我们需要重写hashCode方法,使数据相同的对象返回相同的hashCode. </p>
+<ul>
+<li>重写hashCode方法: </li>
+</ul>
+<p><img src="/images/20191014103915.png" alt></p>
+<ul>
+<li>运行结果: </li>
+</ul>
+<p><img src="/images/20191014104008.png" alt></p>
+<ul>
+<li>在编写java程序中,hashCode和equals这两个方法有这样的规律: <ul>
+<li>hashCode()方法返回值相同时,equals()方法比较不一定相等 </li>
+<li>equals()方法比较相等时,hashCode方法返回值是相同的 </li>
+</ul>
+</li>
+</ul>
+<h4 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h4><p>1.通过List集合存储元素之后,如果想获取某一个特点的对象,操作比较繁琐,需要遍历List,此时我们可以使用Map </p>
+<p>2.Map以键值对的形式存储数据(key–&gt;value) </p>
+<p><img src="/images/20191014104132.png" alt></p>
+<p>3.常用的Map集合为HashMap和Hashtable </p>
+<ul>
+<li>HashMap的常用方法 </li>
+</ul>
+<p><img src="/images/20191014104229.png" alt></p>
+<ul>
+<li>Map集合中key的维护是依靠Set集合,故key不能重复,添加key相同的映射关系时,后面添加的映射关系会覆盖前面的映射关系 </li>
+<li>HashMap和Hashtable的主要区别: <ul>
+<li>Hashtable是线程安全的,HashMap是非线程安全的,HashMap比Hashtable的性能更高 </li>
+<li>Hashtable不允许使用null值作为key或value,但是HashMap是可以的 </li>
+</ul>
+</li>
+</ul>
+<p>举例: </p>
+<p><img src="/images/20191014104333.png" alt></p>
+<h4 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a>Collections工具类</h4><p>1.Collections类与Arrays类一样都提供了一系列静态方法,只是Arrays主要操作数组,而Collections主要操作List集合,同时还有对Set的相关操作 </p>
+<p>2.Collections类提供了一系列的静态方法,可以使用类名.方法名直接调用 </p>
+<ul>
+<li>常用方法</li>
+</ul>
+<p><img src="/images/20191014104444.png" alt></p>
+<ul>
+<li>在List中查找一个对象时,该对象必须实现Comparable接口 </li>
+</ul>
+<p><img src="/images/20191014104641.png" alt></p>
+<h4 id="泛型-Generic"><a href="#泛型-Generic" class="headerlink" title="泛型(Generic)"></a>泛型(Generic)</h4><p>1.集合中要求装入的是Object类型的对象,故在拿到对象使用的时候要强制类型转换 </p>
+<p>2.泛型可以使集合在实例化时就规定好将来要装入什么类型的对象,从集合中取出元素时,不再需要强制类型转换 </p>
+<ul>
+<li>举例: </li>
+</ul>
+<p><img src="/images/20191014104815.png" alt></p>
+<p>3.自定义的类也可以使用泛型 </p>
+<ul>
+<li>举例: </li>
+</ul>
+<p><img src="/images/20191014104859.png" alt></p>
+<ul>
+<li>结果: </li>
+</ul>
+<p><img src="/images/20191014104933.png" alt> </p>
+
+        </div>
+
+
+
+ 
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="https://blog.visutech.cn/8847.html">一起学java之集合框架</a></li>
+            <li><strong>本文作者：</strong><a href="https://blog.visutech.cn">程振奇 | smallodd</a></li>
+            <li><strong>本文链接：</strong><a href="https://blog.visutech.cn/8847.html">https://blog.visutech.cn/8847.html</a></li>
+            <li><strong>发布时间：</strong>2013-07-14</li>
+           <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+       
+
+
+
+
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/JAVA/">JAVA</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/zhifubao.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/3922073342.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">一起学java之面向对象的编程2</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/55382.html">
+                <span class="level-item">一起学java之jdk常用工具类</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="SOHUCS" sid="8847.html"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+    appid: 'cyttwqrBR',
+    conf: '8d6e1f328fe9c9f9ae7fffc2dccf009a'
+});
+</script>
+
+    </div>
+</div>
+
+
+
+
+
+
+ 
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.jpeg" alt="程振奇|smallodd">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        程振奇|smallodd
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        smallodd
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>北京</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        19
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        2
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/smallodd" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/smallodd">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget column-left is-sticky" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#概述">
+        <span class="has-mr-6">1</span>
+        <span>概述</span>
+        </a></li><li>
+        <a class="is-flex" href="#List">
+        <span class="has-mr-6">2</span>
+        <span>List</span>
+        </a></li><li>
+        <a class="is-flex" href="#Set">
+        <span class="has-mr-6">3</span>
+        <span>Set</span>
+        </a></li><li>
+        <a class="is-flex" href="#Map">
+        <span class="has-mr-6">4</span>
+        <span>Map</span>
+        </a></li><li>
+        <a class="is-flex" href="#Collections工具类">
+        <span class="has-mr-6">5</span>
+        <span>Collections工具类</span>
+        </a></li><li>
+        <a class="is-flex" href="#泛型-Generic">
+        <span class="has-mr-6">6</span>
+        <span>泛型(Generic)</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+
+                
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/visutech.png" alt="一起学java之集合框架" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 程振奇 | smallodd&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true}});</script></body>
+</html>

@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>一起学java之类与对象 - 小奇的博客</title>
+
+
+    <meta name="description" content="万物皆对象1.我们能感受到的万事万物都是一个个对象,都属于某一个类型  2.对象具有各种各样的属性,同时也拥有各种各样的行为  3.把一系列对象的共同特征和行为抽象出来,形成一个概念模型,就是类;也就是说:类是对象的抽象定义,对象是类的具体实例">
+<meta name="keywords" content="JAVA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一起学java之类与对象">
+<meta property="og:url" content="https://blog.visutech.cn/3376612127.html">
+<meta property="og:site_name" content="小奇的博客">
+<meta property="og:description" content="万物皆对象1.我们能感受到的万事万物都是一个个对象,都属于某一个类型  2.对象具有各种各样的属性,同时也拥有各种各样的行为  3.把一系列对象的共同特征和行为抽象出来,形成一个概念模型,就是类;也就是说:类是对象的抽象定义,对象是类的具体实例">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://blog.visutech.cn/images/og_image.png">
+<meta property="og:updated_time" content="2019-10-24T03:30:37.752Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一起学java之类与对象">
+<meta name="twitter:description" content="万物皆对象1.我们能感受到的万事万物都是一个个对象,都属于某一个类型  2.对象具有各种各样的属性,同时也拥有各种各样的行为  3.把一系列对象的共同特征和行为抽象出来,形成一个概念模型,就是类;也就是说:类是对象的抽象定义,对象是类的具体实例">
+<meta name="twitter:image" content="https://blog.visutech.cn/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/visutech.png" alt="一起学java之类与对象" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">类别</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2013-07-10T03:51:54.000Z">2013-07-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/一起学java/">一起学java</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 1107 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                一起学java之类与对象
+            
+        </h1>
+        <div class="content">
+            <h5 id="万物皆对象"><a href="#万物皆对象" class="headerlink" title="万物皆对象"></a>万物皆对象</h5><p>1.我们能感受到的万事万物都是一个个对象,都属于某一个类型 </p>
+<p>2.对象具有各种各样的属性,同时也拥有各种各样的行为 </p>
+<p>3.把一系列对象的共同特征和行为抽象出来,形成一个概念模型,就是类;也就是说:类是对象的抽象定义,对象是类的具体实例 </p>
+<a id="more"></a>
+<p>4.面向对象程序的本质就是:将程序设计成一个一个的类,定义出他们的特征和行为(即属性和方法),然后根据类创建出一个一个具体的对象,利用对象之间的关系进行调用,完成一系列的任务 </p>
+<h5 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h5><p>1.java程序以class为组织单位 </p>
+<p>2.关键字class用来定义类 </p>
+<p><img src="/images/class_helloworld.png" alt></p>
+<p>3.定义类的语法 </p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[类修饰符] class 类名 &#123; </span><br><span class="line"></span><br><span class="line">//定义属性部分 </span><br><span class="line"></span><br><span class="line">[属性修饰符]  属性1的类型  属性1; </span><br><span class="line"></span><br><span class="line">[属性修饰符]  属性2的类型  属性2; </span><br><span class="line"></span><br><span class="line">… </span><br><span class="line"></span><br><span class="line">[属性修饰符]  属性n的类型  属性n; </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">//定义方法部分 </span><br><span class="line"></span><br><span class="line">方法1; </span><br><span class="line"></span><br><span class="line">方法2; </span><br><span class="line"></span><br><span class="line">… </span><br><span class="line"></span><br><span class="line">方法m; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.注意:</p>
+<ul>
+<li>定义一个类的步骤:定义类名,编写属性,编写方法 </li>
+<li>class是定义类的关键字 </li>
+<li>类的命名规则,即标示符的命名规则,但为了阅读理解方便,约定不使用_,$等特殊字符,类名通常是名词性质,首字母大写,驼峰式 </li>
+<li>属性的定义,与局部变量的定义相同,定义在类体内,方法体外,与方法平级,即全局变量 </li>
+<li>有一点需要强调的是,类的属性,即全局变量,可以不初始化,在使用时,系统会默认初始化,整数均默认为0,小数默认为0.0,char默认为空格,boolean默认为false,引用类型默认为null </li>
+<li>方法的定义,使用动词或动宾形式的短语,首字母小写,驼峰式命名 </li>
+</ul>
+<p>5.例子:定义一个学生类 </p>
+<p><img src="/images/class_student_obj.png" alt></p>
+<h5 id="如何创建和使用对象"><a href="#如何创建和使用对象" class="headerlink" title="如何创建和使用对象"></a>如何创建和使用对象</h5><p>1.定义类,实际上就是定义了一个新的数据类型,根据基本数据类型可以声明变量,自己申明的类也可以声明变量,称为对象 </p>
+<p>2.声明一个对象的语法 </p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类名  对象名;</span><br></pre></td></tr></table></figure>
+
+<p>3.声明后并没有给对象分配内存空间,要分配内存空间,需要使用new关键字 </p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类名  对象名  =  new  类名();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>声明对象并分配内存空间,即为类实例化(从一个抽象的类中具体中一个具体的实例) </li>
+</ul>
+<p>4.实例化对象后,可以访问对象的属性和方法 </p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对象名.属性名 </span><br><span class="line"></span><br><span class="line">对象名.方法名([参数列表])</span><br></pre></td></tr></table></figure>
+
+<p>实例化一个Student类的对象,并且赋值,调用方法: </p>
+<p><img src="/images/classs_student_test.png" alt><br>5.注意: </p>
+<ul>
+<li>一个类可以实例化出多个对象,不同的对象在内存中是独立的,改变一个对象不会影响其他的对象 </li>
+<li>上面我们看到的例子中,我们在main方法中根据自己定义的类声明了一个局部变量,事实上还可以声明成员变量 </li>
+</ul>
+<p><img src="/images/class_student_chenguan.png" alt></p>
+<h5 id="使用类和对象的优点"><a href="#使用类和对象的优点" class="headerlink" title="使用类和对象的优点"></a>使用类和对象的优点</h5><p>1.与人类的思维习惯一致,把人类解决问题的思维过程转变为程序能够理解的过程 </p>
+<p>2.提高了程序的可重用性,一个类可以创建多个对象实例，增加了重用性 </p>
+<p>3.信息隐藏，提高了程序的可维护性和安全性 ,封装实现了模块化和信息隐藏 ,封装使得在对象外部不能随意访问对象的属性和方法(在学习了方法之后详细体会) </p>
+<h5 id="打包和导入"><a href="#打包和导入" class="headerlink" title="打包和导入"></a>打包和导入</h5><p>1.打包 </p>
+<ul>
+<li>观察package语句 </li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package com.phome.java.test1;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意<ul>
+<li>允许类组成较小的单元(类似文件夹),易于找到和使用相应的文件,方便管理 </li>
+<li>防止命名冲突 </li>
+<li>更好的保护类属性和方法 </li>
+<li>包名之前最好加上唯一的前缀,通常使用组织倒置的网络域名 </li>
+<li>一个类只能有一条package语句 </li>
+</ul>
+</li>
+</ul>
+<p>2.导入 </p>
+<ul>
+<li>为了使用不在同一个包中的类,java使用import关键字导入 </li>
+<li>观察import语句 </li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import com.phome.java.test2; </span><br><span class="line"></span><br><span class="line">import java.util.*;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>系统包和自己定义的包 </li>
+<li>使用”*”导入一个包中所有的类 </li>
+</ul>
+
+        </div>
+
+
+
+ 
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="https://blog.visutech.cn/3376612127.html">一起学java之类与对象</a></li>
+            <li><strong>本文作者：</strong><a href="https://blog.visutech.cn">程振奇 | smallodd</a></li>
+            <li><strong>本文链接：</strong><a href="https://blog.visutech.cn/3376612127.html">https://blog.visutech.cn/3376612127.html</a></li>
+            <li><strong>发布时间：</strong>2013-07-10</li>
+           <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+       
+
+
+
+
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/JAVA/">JAVA</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/zhifubao.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/1067981242.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">一起学java之方法</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/56445.html">
+                <span class="level-item">一起学java之String简介</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="SOHUCS" sid="3376612127.html"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+    appid: 'cyttwqrBR',
+    conf: '8d6e1f328fe9c9f9ae7fffc2dccf009a'
+});
+</script>
+
+    </div>
+</div>
+
+
+
+
+
+
+ 
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.jpeg" alt="程振奇|smallodd">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        程振奇|smallodd
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        smallodd
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>北京</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        19
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        2
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/smallodd" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/smallodd">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget column-left is-sticky" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#万物皆对象">
+        <span class="has-mr-6">1</span>
+        <span>万物皆对象</span>
+        </a></li><li>
+        <a class="is-flex" href="#类的定义">
+        <span class="has-mr-6">2</span>
+        <span>类的定义</span>
+        </a></li><li>
+        <a class="is-flex" href="#如何创建和使用对象">
+        <span class="has-mr-6">3</span>
+        <span>如何创建和使用对象</span>
+        </a></li><li>
+        <a class="is-flex" href="#使用类和对象的优点">
+        <span class="has-mr-6">4</span>
+        <span>使用类和对象的优点</span>
+        </a></li><li>
+        <a class="is-flex" href="#打包和导入">
+        <span class="has-mr-6">5</span>
+        <span>打包和导入</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+
+                
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/visutech.png" alt="一起学java之类与对象" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 程振奇 | smallodd&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true}});</script></body>
+</html>

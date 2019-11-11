@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>一起学java之变量,数据类型和运算符 - 小奇的博客</title>
+
+
+    <meta name="description" content="标示符1.概念:就是标示变量,类等的名称的字符串序列 说白了就是程序中可以自己起名字的地方  2.标示符的命名规则   由字母,下划线_,美元符号$或数字组成  由字母,下划线_,美元符号$开始  大小写敏感,长度无限制">
+<meta name="keywords" content="JAVA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一起学java之变量,数据类型和运算符">
+<meta property="og:url" content="https://blog.visutech.cn/558044812.html">
+<meta property="og:site_name" content="小奇的博客">
+<meta property="og:description" content="标示符1.概念:就是标示变量,类等的名称的字符串序列 说白了就是程序中可以自己起名字的地方  2.标示符的命名规则   由字母,下划线_,美元符号$或数字组成  由字母,下划线_,美元符号$开始  大小写敏感,长度无限制">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://blog.visutech.cn/images/og_image.png">
+<meta property="og:updated_time" content="2019-10-28T06:15:41.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一起学java之变量,数据类型和运算符">
+<meta name="twitter:description" content="标示符1.概念:就是标示变量,类等的名称的字符串序列 说白了就是程序中可以自己起名字的地方  2.标示符的命名规则   由字母,下划线_,美元符号$或数字组成  由字母,下划线_,美元符号$开始  大小写敏感,长度无限制">
+<meta name="twitter:image" content="https://blog.visutech.cn/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/visutech.png" alt="一起学java之变量,数据类型和运算符" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">类别</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2013-07-09T03:50:38.000Z">2013-07-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/一起学java/">一起学java</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 分钟 读完 (大约 1741 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                一起学java之变量,数据类型和运算符
+            
+        </h1>
+        <div class="content">
+            <h5 id="标示符"><a href="#标示符" class="headerlink" title="标示符"></a>标示符</h5><p>1.概念:就是标示变量,类等的名称的字符串序列 说白了就是程序中可以自己起名字的地方 </p>
+<p>2.标示符的命名规则 </p>
+<ul>
+<li>由字母,下划线_,美元符号$或数字组成 </li>
+<li>由字母,下划线_,美元符号$开始 </li>
+<li>大小写敏感,长度无限制 <a id="more"></a></li>
+<li>不能使用java关键字,goto和const虽然未被使用,但java也作为关键字保留 </li>
+<li>不合法的标示符举例:class  data#  78.9 </li>
+</ul>
+<p><img src="/images/java_crux.png" alt></p>
+<p>3.约定:起名要做到”见名知意” </p>
+<h5 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h5><p>1.字面常量:我们所能看到的真实的字面值 </p>
+<ul>
+<li>整型字面常量:10,123 </li>
+<li>浮点型字面常量:3.14 </li>
+<li>布尔型字面常量:true,false </li>
+<li>字符型字面常量:’a’,’A’ </li>
+<li>字符串型字面常量:”gansu” </li>
+<li>Null型字面常量:值为null,代表什么都没有 </li>
+</ul>
+<p>2.在另一种语境下,常量的意思是值不可改变的变量,用final修饰,以后会遇到 </p>
+<h5 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h5><p>1.概念:变量是程序中最基本的存储单元,实质是内存中的一小块区域,可以使用变量名来访问该一小块内存区域 </p>
+<p>2.变量的定义和使用:变量先定义—&gt;再赋值—&gt;再使用 </p>
+<figure class="highlight java hljs"><figcaption><span>[] []</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">类型    变量名    [=   初始值]; </span><br><span class="line"><span class="hljs-keyword">int</span>  a = <span class="hljs-number">30</span>; </span><br><span class="line"><span class="hljs-keyword">int</span>  b = <span class="hljs-number">40</span>; </span><br><span class="line"><span class="hljs-keyword">int</span>  c = a * b; </span><br><span class="line"><span class="hljs-keyword">int</span> d; </span><br><span class="line">d = <span class="hljs-number">50</span>; </span><br><span class="line"><span class="hljs-keyword">float</span>  f = <span class="hljs-number">12.5f</span>; </span><br><span class="line">String s = <span class="hljs-string">"Hello"</span>; </span><br><span class="line"><span class="hljs-keyword">boolean</span> choice = <span class="hljs-keyword">true</span>; </span><br><span class="line">System.out.println(s);  </span><br></pre></td></tr></table></figure>
+
+<p>3.数据类型的概念:因为在变量中存储数据时会遇到各种各样的数据,所以有必要将不同的数据按照数据类型分开,方便分配内存空间和使用<br>4.变量的作用范围,在申明他的{}内有用,出了{},没有人认识它<br>5.变量的分类 </p>
+<ul>
+<li>按变量申明的位置划分<ul>
+<li>局部变量:方法或语句块内部定义的变量 </li>
+<li>成员变量:方法外部,类的内部定义的变量 </li>
+</ul>
+</li>
+<li>按数据类型划分 <ul>
+<li>基本数据类型的变量 </li>
+<li>引用数据类型的变量 </li>
+</ul>
+</li>
+</ul>
+<h5 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h5><p>1.java语言提供了8种基本数据类型 </p>
+<p><img src="/images/base_data_type.png" alt></p>
+<p>2.说明: </p>
+<ul>
+<li>byte型,占用1个字节,对字节操作时使用,如文件读写等 </li>
+<li>short型,占用2个字节,保存较小的整数时使用 </li>
+<li>int型,占用4个字节,保存一般的整数时使用 </li>
+<li>long型,占用8个字节,保存较长的整数时使用 </li>
+<li>float型,占用4个字节保存小数时使用 </li>
+<li>double型,占用8个字节,保存精度较高的小数时使用 </li>
+<li>char型,占用2个字节,保存单个字母或汉字时使用 </li>
+<li>boolean型,占用1个字节,保存逻辑值,如性别,婚否等 </li>
+<li>类型定义好之后,后续无法改变,所以定义变量时要根据实际情况选择好变量的数据类型 </li>
+</ul>
+<p>3.特殊字符的说明,char类型可以保存一个字符(字母或汉字),一些特殊字符在保存时可以采用转义字符”&quot;: </p>
+<figure class="highlight java hljs"><figcaption><span>[] []</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-keyword">char</span> a = <span class="hljs-string">'\n'</span>;      <span class="hljs-comment">//换行 </span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">char</span> b = <span class="hljs-string">'\\'</span>;      <span class="hljs-comment">//反斜杠 </span></span><br><span class="line"></span><br><span class="line">Char c = <span class="hljs-string">'\''</span>;      <span class="hljs-comment">//单引号   </span></span><br></pre></td></tr></table></figure>
+
+<p>4.注意java会默认将整型的字面常量认作int类型,将浮点型的字面常量认作double类型,申明long类型时要在后面加L,申明float类型时要在后面加F </p>
+<p>5.一个特殊的类型：String类型。 String并不是java的基础数据类型,不过是一个很常用的类型,用来存储字符串变量。</p>
+<h5 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h5><p>如果说数据类型是编程语言的砖瓦,那么运算符和操作符则是编程语言的石灰和水泥了,它是将各种数据类型的值有机组合的糅,使得数据值不再只是一个孤立的值,而有了一种动态的灵性. </p>
+<p>1.赋值运算符和常见算数运算符 </p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>赋值运算符,为变量赋值</td>
+<td>int a = 3;</td>
+</tr>
+<tr>
+<td>+</td>
+<td>加法运算符,求两个操作数的和</td>
+<td>3+2,表达式的值为5</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减法运算符,求两个操作数的差</td>
+<td>6-1,表达式的值为5</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法运算符,求两个操作数的积</td>
+<td>2*3,表达式的值为6</td>
+</tr>
+<tr>
+<td>/</td>
+<td>除法运算符,求两个操作数的商</td>
+<td>8/4,表达式的值为2</td>
+</tr>
+<tr>
+<td>%</td>
+<td>求余运算符,求两个操作数相除后的余数</td>
+<td>9%5,表达式的值是4</td>
+</tr>
+<tr>
+<td>++</td>
+<td>自增运算符,对一个整数变量执行+1的操作</td>
+<td>int a = 3;3++或++3的值都是4</td>
+</tr>
+<tr>
+<td>–</td>
+<td>自减运算符,对一个整数变量执行-1的操作</td>
+<td>int a = 3;3–或–3的值都是2</td>
+</tr>
+</tbody></table>
+<p>2.求余运算符要求两个操作数均为整数,但测试的结果好像浮点型的也可以,不重要. </p>
+<p>3.注意整除和浮点除的区别:两个操作数全是int型,结果也是int型,会丢失小数部分,</p>
+<p>4.注意++和–运算,a++表示先使用a的值,再给a加上1;++a表示先给a加上1,再使用a的值,–与此类似 </p>
+<p>5.是时候扩展我们程序的功能了,看看Scanner类,注意Scanner对象的一些常用方法,如nextInt() </p>
+<p>6.关系运算符</p>
+<table>
+<thead>
+<tr>
+<th>==</th>
+<th>!=</th>
+<th>&gt;</th>
+<th>&gt;=</th>
+<th>&lt;</th>
+<th>&lt;=</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>等于</td>
+<td>不等于</td>
+<td>大于</td>
+<td>大于等于</td>
+<td>小于</td>
+<td>小于等于</td>
+</tr>
+</tbody></table>
+<p>7.逻辑运算符 </p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>操作数</th>
+<th>运算规则</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>逻辑与&amp;&amp;</td>
+<td>2</td>
+<td>两个操作数均为true,则结果为true,否则结果为false</td>
+</tr>
+<tr>
+<td>逻辑或&#124;&#124;</td>
+<td>2</td>
+<td>两个操作数中只有一个为true则结果为true,否则结果为false</td>
+</tr>
+<tr>
+<td>逻辑非!</td>
+<td>1</td>
+<td>操作数为true则结果为false,操作数为false则结果为true</td>
+</tr>
+</tbody></table>
+<p>8.在逻辑与&amp;&amp;运算中,当第一个操作数返回false,直接返回false,不再进行第二个操作数的运算;在进行逻辑或||运算时,当第一操作数返回true,直接返回true,不再进行第二个操作数的运算 </p>
+<p>9.复合赋值运算符(假设a = 10) </p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>等价的java代码</th>
+<th>运行的结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a += 3;</td>
+<td>a = a + 3;</td>
+<td>13</td>
+</tr>
+<tr>
+<td>a -= a /= 3;</td>
+<td>a = a / 3;</td>
+<td>3</td>
+</tr>
+<tr>
+<td>a %= 3;</td>
+<td>a = a % 3;</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<p>10.运算符的优先级 <code>注意:千万不要去记这个,有个印象就行,实际写代码的时候请使用().</code></p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>运算符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>() [] .</td>
+</tr>
+<tr>
+<td>2</td>
+<td>! +(正) -(负) ~ ++ –</td>
+</tr>
+<tr>
+<td>3</td>
+<td>* / %</td>
+</tr>
+<tr>
+<td>4</td>
+<td>+(加) -(减)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>&lt;&lt; &gt;&gt; &gt;&gt;&gt;</td>
+</tr>
+<tr>
+<td>6</td>
+<td>&lt; &lt;= &gt; &gt;= instanceof</td>
+</tr>
+<tr>
+<td>7</td>
+<td>== !=</td>
+</tr>
+<tr>
+<td>8</td>
+<td>&amp;(按位与)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>^</td>
+</tr>
+<tr>
+<td>10</td>
+<td>&#124;</td>
+</tr>
+<tr>
+<td>11</td>
+<td>&amp;&amp;</td>
+</tr>
+<tr>
+<td>12</td>
+<td>&#124; &#124;</td>
+</tr>
+<tr>
+<td>13</td>
+<td>?:(三元表达式)</td>
+</tr>
+<tr>
+<td>14</td>
+<td>= += -= *= /= %= &amp;=</td>
+</tr>
+</tbody></table>
+<h5 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h5><p>1.自动数据类型转换 </p>
+<ul>
+<li>java基础变量按照分配内存空间从小到大的顺序排列,如图</li>
+<li>在一个表达式中,如果含有不同数据类型的数据,自动按照从左向右,从下向上的顺序转换类型 </li>
+<li>请注意表达式结果的数据类型 </li>
+<li>boolean类型不参与数据类型转换 </li>
+<li>低级别的数据类型可以轻松的转换为高级别的数据类型 </li>
+</ul>
+<p><img src="/images/data_type_conversion.png" alt></p>
+<p>2.强制数据类型转换 </p>
+<ul>
+<li>同一级别,高级别向低级别的数据类型转换,需要强制 </li>
+<li>转换过程中会丢失数据 </li>
+<li>字符串String与其他数据类型用 +号连接时,都会将其他数据类型先转换为String,然后两个字符串拼接 </li>
+</ul>
+
+        </div>
+
+
+
+ 
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="https://blog.visutech.cn/558044812.html">一起学java之变量,数据类型和运算符</a></li>
+            <li><strong>本文作者：</strong><a href="https://blog.visutech.cn">程振奇 | smallodd</a></li>
+            <li><strong>本文链接：</strong><a href="https://blog.visutech.cn/558044812.html">https://blog.visutech.cn/558044812.html</a></li>
+            <li><strong>发布时间：</strong>2013-07-09</li>
+           <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+       
+
+
+
+
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/JAVA/">JAVA</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/zhifubao.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/5002.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">一起学java之Java语言程序结构</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/39966.html">
+                <span class="level-item">一起学java之jdk的安装</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="SOHUCS" sid="558044812.html"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+    appid: 'cyttwqrBR',
+    conf: '8d6e1f328fe9c9f9ae7fffc2dccf009a'
+});
+</script>
+
+    </div>
+</div>
+
+
+
+
+
+
+ 
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.jpeg" alt="程振奇|smallodd">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        程振奇|smallodd
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        smallodd
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>北京</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        19
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        2
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/smallodd" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/smallodd">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget column-left is-sticky" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#标示符">
+        <span class="has-mr-6">1</span>
+        <span>标示符</span>
+        </a></li><li>
+        <a class="is-flex" href="#常量">
+        <span class="has-mr-6">2</span>
+        <span>常量</span>
+        </a></li><li>
+        <a class="is-flex" href="#变量">
+        <span class="has-mr-6">3</span>
+        <span>变量</span>
+        </a></li><li>
+        <a class="is-flex" href="#基本数据类型">
+        <span class="has-mr-6">4</span>
+        <span>基本数据类型</span>
+        </a></li><li>
+        <a class="is-flex" href="#运算符">
+        <span class="has-mr-6">5</span>
+        <span>运算符</span>
+        </a></li><li>
+        <a class="is-flex" href="#数据类型转换">
+        <span class="has-mr-6">6</span>
+        <span>数据类型转换</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+
+                
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/visutech.png" alt="一起学java之变量,数据类型和运算符" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 程振奇 | smallodd&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true}});</script></body>
+</html>
