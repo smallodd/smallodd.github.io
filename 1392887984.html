@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>一起学Java之线程池 - 小奇的博客</title>
+
+
+    <meta name="description" content="前言在开发中我们会使用多线程来提高效率,Java中提供了线程池，线程池是运用场景最多的并发框架，可以这么说，几乎所有需要异步或者并发执行任务的程序都可以使用线程池。合理的使用线程池">
+<meta name="keywords" content="JAVA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一起学Java之线程池">
+<meta property="og:url" content="https://blog.visutech.cn/1392887984.html">
+<meta property="og:site_name" content="小奇的博客">
+<meta property="og:description" content="前言在开发中我们会使用多线程来提高效率,Java中提供了线程池，线程池是运用场景最多的并发框架，可以这么说，几乎所有需要异步或者并发执行任务的程序都可以使用线程池。合理的使用线程池">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://blog.visutech.cn/images/og_image.png">
+<meta property="og:updated_time" content="2020-04-23T10:02:19.288Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一起学Java之线程池">
+<meta name="twitter:description" content="前言在开发中我们会使用多线程来提高效率,Java中提供了线程池，线程池是运用场景最多的并发框架，可以这么说，几乎所有需要异步或者并发执行任务的程序都可以使用线程池。合理的使用线程池">
+<meta name="twitter:image" content="https://blog.visutech.cn/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/visutech.png" alt="一起学Java之线程池" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">类别</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-23T03:21:51.000Z">2019-04-23</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    19 分钟 读完 (大约 2798 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                一起学Java之线程池
+            
+        </h1>
+        <div class="content">
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在开发中我们会使用多线程来提高效率,<code>Java</code>中提供了线程池，线程池是运用场景最多的并发框架，可以这么说，几乎所有需要异步或者并发执行任务的程序都可以使用线程池。合理的使用线程池<a id="more"></a>可以降低资源消耗，提高响应速度，更加方便的管理线程。</p>
+<h3 id="线程池主要的处理流程"><a href="#线程池主要的处理流程" class="headerlink" title="线程池主要的处理流程"></a>线程池主要的处理流程</h3><p>要想了解一件事，那么我们必须先了解这件事的流程，所以我们要了解一下线程池的主要处理流程。</p>
+<ol>
+<li>任务提交以后，线程池判断核心线程是否都在执行任务，如果没有，就新建一个线程来执行这个任务，如果有那么进入第二步。</li>
+<li>线程池判断工作队列中是否已满，没有，就把这个队列存储到工作队列中去，如果满了，就执行第三步。</li>
+<li>线程池判断线程池的线程是否都处于工作状态，如果没有，就创建一个线程来执行任务，如果已经满了，就按照策略处理无法执行的任务。</li>
+<li>主要的处理流程见下图</li>
+</ol>
+<p><img src="/images/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B.jpg" alt></p>
+<h3 id="线程池的使用"><a href="#线程池的使用" class="headerlink" title="线程池的使用"></a>线程池的使用</h3><h4 id="线程池的创建"><a href="#线程池的创建" class="headerlink" title="线程池的创建"></a>线程池的创建</h4><p>下面我们来看下线程池的使用，在<code>Java</code>中我们可以通过<code>ThreadPoolExecutor</code>来创建一个线程池，初始化线程池的时候要有几个参数（基于jdk1.8），我们一起来看下</p>
+<ol>
+<li>corePoolSize： 这个参数表示线程池的基本大小，根据线程池的处理流程我们可以知道，当提交一个任务到线程池中的时候，线程池会创建一个线程来执行任务，这里需要注意一点，当线程池的基本大小没满的时候，不管线程池有没有空闲，他都会创建一个线程来执行，直到线程池的基本大小满了，就不在创建了，有的同学就会问了，能不能不在提交任务的时候创建呢，当然是可以的，线程池提供了一个prestartAllCoreThreads()的方法，调用这个方法以后，线程池会提前创建并启动所有基本线程。</li>
+<li>maximumPoolSize： 这个参数表示线程池的最大数量，简单的来说就是线程池允许创建的最大的线程数量。如果工作队列满了，线程池就会新建一个线程来执行任务，但是有一点，如果任务队列的大小是无限大的时候，这个最大值就没有用了，因为不管你有多少任务，他都会进入到任务队列中去。</li>
+<li>keepAliveTime： 线程的保活时间，就是在线程池中有一个工作线程空闲了，这个线程可以存活多长时间，如果每个任务的执行时间比较短的话，我们可以加大线程的保活时间，这样线程的利用率就提高了</li>
+<li>unit： 线程保活的单位，详见TimeUnit，可以是天、小时、分钟、秒、毫秒、微妙、纳秒</li>
+<li>workQueue： 工作队列，作用是用来保存等待执行任务的阻塞队列，阻塞队列有多种下面我们来一一看下<ul>
+<li>ArrayBlockingQueue： 看名字是不是很熟悉，像不像<code>ArrayList</code>，通过名字我们可以看出，肯定是基于数据结构的，所以呢<code>ArrayBlockingQueue</code>是一个基于数据的，有界的（可以设置队列大小）阻塞队列，这个队列按照先进先出的原则对队列中的任务进行排序</li>
+<li>LinkedBlockingQueue： 同理，这个一看就知道是基于链表的阻塞队列，这个队列也是按照先进先出原则进行排序，由于使用的是链表，插入删除效率高，所以吞吐量是要高于<code>ArrayBlockingQueue</code>的</li>
+<li>SynchronousQueue：这个是一个不存储元素的阻塞队列，看名字就知道，同步，这表示每一个插入操作都必须等到另一个线程的移除操作，不然插入操作就会一直阻塞</li>
+<li>PriorityBlockingQueue: 一个支持优先级的无界阻塞队列，直到系统资源耗尽，使用的较少。</li>
+</ul>
+</li>
+<li>threadFactory：用来设置创建线程的工厂，一般的都使用<code>guava</code>提供的<code>ThreadFactoryBuilder</code>来创建，例如通过<code>ThreadFactoryBuilder</code>来给线程设置名字，方便后期查问题，代码示例： <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, 3, 0L, TimeUnit.MILLISECONDS,</span><br><span class="line">            new LinkedBlockingDeque&lt;&gt;(2),new ThreadFactoryBuilder().setNameFormat(&quot;hachi-test-%d&quot;).build());</span><br><span class="line"></span><br><span class="line">    threadPoolExecutttr.prestartAllCoreThreads();</span><br><span class="line">    for (int i = 0; i &lt;3 ; i++ &#123;</span><br><span class="line">        threadPoolExecutor.execute(new Runnable() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line"></span><br><span class="line">                System.out.println(&quot;线程&quot;+ Thread.currentThread().getName()+&quot;执行&quot;);</span><br><span class="line">                try &#123;</span><br><span class="line">                    TimeUnit.SECONDS.sleep(1L);</span><br><span class="line">                &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>输出示例：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">线程hachi-test-2执行</span><br><span class="line">线程hachi-test-0执行</span><br><span class="line">线程hachi-test-1执行</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li><p>handler: 表示当队列已经饱和的时候使用的策略，类型为：<code>RejectedExecutionHandler</code>即如果队列和线程池都满了就需要一种策略来处理新加入的任务。jdk提供了4钟策略来处理这种情况</p>
+<ul>
+<li><p>AbortPolicy：直接抛出异常，这也是<code>ThreadPoolExecutor</code>默认的策略</p>
+</li>
+<li><p>CallerRunsPolicy: 只要线程池未关闭，就用调用者所在的线程来执行任务，这样做的好处是可以不用丢弃任务，坏处是可能导致调用者线程的性能急剧下降</p>
+</li>
+<li><p>DiscardOldestPolicy: 这个就比较流氓了，当任务进来的时候，直接丢去队列里面最近的一个任务，并执行当前任务。</p>
+</li>
+<li><p>DiscardPolicy:不处理,丢弃掉。</p>
+</li>
+<li><p>通过查看jdk 源码来看上述四种策略都是在<code>ThreadPoolExecutor</code>中的静态内部类，详细代码如下</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"> /**</span><br><span class="line"> * A handler for rejected tasks that runs the rejected task</span><br><span class="line"> * directly in the calling thread of the &#123;@code execute&#125; method,</span><br><span class="line"> * unless the executor has been shut down, in which case the task</span><br><span class="line"> * is discarded.</span><br><span class="line"> */</span><br><span class="line">public static class CallerRunsPolicy implements RejectedExecutionHandler &#123;</span><br><span class="line">    /**</span><br><span class="line">     * Creates a &#123;@code CallerRunsPolicy&#125;.</span><br><span class="line">     */</span><br><span class="line">    public CallerRunsPolicy() &#123; &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Executes task r in the caller&apos;s thread, unless the executor</span><br><span class="line">     * has been shut down, in which case the task is discarded.</span><br><span class="line">     *</span><br><span class="line">     * @param r the runnable task requested to be executed</span><br><span class="line">     * @param e the executor attempting to execute this task</span><br><span class="line">     */</span><br><span class="line">    public void rejectedExecution(Runnable r, ThreadPoolExecutor e) &#123;</span><br><span class="line">        if (!e.isShutdown()) &#123;</span><br><span class="line">            r.run();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * A handler for rejected tasks that throws a</span><br><span class="line"> * &#123;@code RejectedExecutionException&#125;.</span><br><span class="line"> */</span><br><span class="line">public static class AbortPolicy implements RejectedExecutionHandler &#123;</span><br><span class="line">   /**</span><br><span class="line">     * Creates an &#123;@code AbortPolicy&#125;.</span><br><span class="line">     */</span><br><span class="line">     public AbortPolicy() &#123; &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Always throws RejectedExecutionException.</span><br><span class="line">     *</span><br><span class="line">     * @param r the runable task requested to be executed</span><br><span class="line">     * @param e the execuutor attempting to execute this task</span><br><span class="line">     * @throws RejectedExecutionException always</span><br><span class="line">     */</span><br><span class="line">    public void rejectedExecution(Runnable r, ThreadPoolExecutor e) &#123;</span><br><span class="line">        throw new RejectedExecutionException(&quot;Task &quot; + r.toString() +</span><br><span class="line">                                             &quot; rejected from &quot; +</span><br><span class="line">                                             e.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * A handler for rejected tasks that silently discards the</span><br><span class="line"> * rejected task.</span><br><span class="line"> */</span><br><span class="line">public static class DiscardPolicy implements RejectedExecutionHandler &#123;</span><br><span class="line">    /**</span><br><span class="line">     * Creates a &#123;@code DiscardPolicy&#125;.</span><br><span class="line">     */</span><br><span class="line">    public DiscardPolicy() &#123; &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Does nothing, which has the effect of discarding task r.</span><br><span class="line">     *</span><br><span class="line">     * @param r the runnable task requested toe executed</span><br><span class="line">     * @param e the executor attempting to execuuute this task</span><br><span class="line">     */</span><br><span class="line">    public void rejectedExecution(Runnable r, ThreadPoolExecutor e) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * A handler for rejected tasks that discards the oldest unhandled</span><br><span class="line"> * request and then retries &#123;@code execute&#125;, unless the executor</span><br><span class="line"> * is shut down, in which case the task is discarded.</span><br><span class="line"> */</span><br><span class="line">public static class DiscardOldestPolicy implements RejectedExecutionHandler &#123;</span><br><span class="line">    /**</span><br><span class="line">     * Creates a &#123;@code DiscardOldestPolicy&#125; for the given executor.</span><br><span class="line">     */</span><br><span class="line">    public DiscardOldestPolicy() &#123; &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Obtains and ignores the next task that the executor</span><br><span class="line">     * would otherwise execute, if one is immediately available,</span><br><span class="line">     * and then retries execution of task r, unless the executor</span><br><span class="line">     * is shut down, in which case task r is instead discarded.</span><br><span class="line">     *</span><br><span class="line">     * @param r the runnable task requested to be executed</span><br><span class="line">     * @param e the executor attempting to execute this task</span><br><span class="line">     */</span><br><span class="line">    public void rejectedExecution(Runnable r, ThreadPoolExecutor e) &#123;</span><br><span class="line">        if (!e.isShutdown()) &#123;</span><br><span class="line">            e.getQueue().poll();</span><br><span class="line">            e.execute(r);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以我们也可以手动实现<code>RejectedExecutionHandler</code>接口来自定义策略，例如记录log，或者任务重启机制等</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="向线程池中提交任务"><a href="#向线程池中提交任务" class="headerlink" title="向线程池中提交任务"></a>向线程池中提交任务</h4><p>在<code>ThreadPoolExecutor</code>中提供了两种方法想线程池中提交任务，分别是execute()和submit()。下面我们来了解一下这个方法</p>
+<ol>
+<li><p>execute： 通过查看jdk源码我们不难发现<code>execute</code>方法的入参是一个Runnable()对象，但是是没有回参的所以我们无法判断任务是否被线程池执行成功。示例代码：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">threadPoolExecutor.execute(new Runnable() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line"></span><br><span class="line">                System.out.println(&quot;线程&quot;+ Thread.currentThread().getName()+&quot;执行&quot;);</span><br><span class="line">                try &#123;</span><br><span class="line">                    TimeUnit.SECONDS.sleep(1L);</span><br><span class="line">                &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>submit: 通过查看jdk源码我们可以发现 submit方法是来源于接口<code>ExecutorService</code>，<code>AbstractExecutorService</code>实现了<code>ExecutorService</code>，<code>ThreadPoolExecutor</code>继承了<code>AbstractExecutorService</code>。  这个方法是可以返回一个Future类型，通过这个回参的get()方法可以获取返回值。</p>
+<ul>
+<li>get()方法会阻塞当前线程直到任务完成</li>
+<li>get(long timeout,TimeUnit unit)会根据传入的时间来阻塞一段时间然后立即返回，这个时候任务很可能未完成 </li>
+</ul>
+</li>
+</ol>
+<p>下面我们看下<code>submit</code>方法的代码</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @throws RejectedExecutionException &#123;@inheritDoc&#125;</span><br><span class="line"> * @throws NullPointerException       &#123;@inheritDoc&#125;</span><br><span class="line"> */</span><br><span class="line">public Future&lt;?&gt; submit(Runnable task) &#123;</span><br><span class="line">    if (task == null) throw new NullPointerException();</span><br><span class="line">    RunnableFuture&lt;Void&gt; ftask = newTaskFor(task, null);</span><br><span class="line">    execute(ftask);</span><br><span class="line">    return ftask;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @throws RejectedExecutionException &#123;@inheritDoc&#125;</span><br><span class="line"> * @throws NullPointerException       &#123;@inheritDoc&#125;</span><br><span class="line"> */</span><br><span class="line">public &lt;T&gt; Future&lt;T&gt; submit(Runnable task, T result) &#123;</span><br><span class="line">    if (task == null) throw new NullPointerException();</span><br><span class="line">    RunnableFuture&lt;T&gt; ftask = newTaskFor(task, result);</span><br><span class="line">    execute(ftask);</span><br><span class="line">    return ftask;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @throws RejectedExecutionException &#123;@inheritDoc&#125;</span><br><span class="line"> * @throws NullPointerException       &#123;@inheritDoc&#125;</span><br><span class="line"> */</span><br><span class="line">public &lt;T&gt; Future&lt;T&gt; submit(Callable&lt;T&gt; task) &#123;</span><br><span class="line">    if (task == null) throw new NullPointerException();</span><br><span class="line">    RunnableFuture&lt;T&gt; ftask = newTaskFor(task);</span><br><span class="line">    execute(ftask);</span><br><span class="line">    return ftask;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到有三个submit方法。但是只有实现了<code>Callable</code>接口才能有返回值， <code>Runnable</code>是没有的，即<code>submit(Runnable task)</code>返回的值调用get方法后会返回一个<code>null</code>。而<code>submit(Runnable task, T result)</code>能通过传入的载体<code>result</code>间接获得线程的返回值，如果执行失败就会获取到异常，如果执行成功就会拿到之前定义好的值<br>下面我们介绍一下<code>submit(Callable&lt;T&gt; task)</code> 示例代码详见： </p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws ExecutionException, InterruptedException &#123;</span><br><span class="line">    ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, 3, 0L, TimeUnit.MILLISECONDS,</span><br><span class="line">            new LinkedBlockingDeque&lt;&gt;(2),new ThreadFactoryBuilder().setNameFormat(&quot;hachi-test-%d&quot;).build());</span><br><span class="line"></span><br><span class="line">    threadPoolExecutor.prestartAllCoreThreads();</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt;3 ; i++) &#123;</span><br><span class="line">        Callable&lt;HttpClientResultBean&gt; callable = new Callable&lt;HttpClientResultBean&gt;() &#123;</span><br><span class="line">            public HttpClientResultBean call() throws Exception &#123;</span><br><span class="line">                System.out.println(&quot;线程&quot;+ Thread.currentThread().getName()+&quot;执行&quot;);</span><br><span class="line">                return new HttpClientResultBean();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        Future&lt;HttpClientResultBean&gt; future= threadPoolExecutor.submit(callable);</span><br><span class="line">        System.out.println(JsonUtils.obj2Json(future.get()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="关闭线程池"><a href="#关闭线程池" class="headerlink" title="关闭线程池"></a>关闭线程池</h4><p>通过上述操作我们创建了线程池，并且向线程池中新增了任务，那么我们如何关闭线程池呢？jdk提供了<code>shutdown</code>和<code>shutdownNow</code>两个方法来关闭线程池。原理是遍历线程池中的工作线程,然后逐个调用线程的interrupt方法来中断线程,所以无法响应中断的任务<br>可能永远无法终止。那么他们有啥区别呢？</p>
+<ol>
+<li>shutdown： 仅仅是将线程池的状态设置成<code>SHUTDOWN</code>状态，然后中断没有正在执行的任务线程</li>
+<li>shutdownNow：首先将线程池的状态设置成｀STOP｀,然后尝试停止所有的正在执行或暂停任务的线程,并返回等待执行任务的列表</li>
+</ol>
+<p>注意：</p>
+<ul>
+<li>只要调用了两个方法的任意一个,<code>isShutdown</code>方法就会返回<code>true</code>。当所有的任务<br>都已关闭后,才表示线程池关闭成功,这时调用<code>isTerminaed</code>方法会返回<code>true</code>。至于应该调用哪<br>一种方法来关闭线程池,应该由提交到线程池的任务特性决定,通常调用<code>shutdown</code>方法来关闭<br>线程池,如果任务不一定要执行完,则可以调用<code>shutdownNow</code>方法。</li>
+</ul>
+
+        </div>
+
+
+
+ 
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="https://blog.visutech.cn/1392887984.html">一起学Java之线程池</a></li>
+            <li><strong>本文作者：</strong><a href="https://blog.visutech.cn">程振奇 | smallodd</a></li>
+            <li><strong>本文链接：</strong><a href="https://blog.visutech.cn/1392887984.html">https://blog.visutech.cn/1392887984.html</a></li>
+            <li><strong>发布时间：</strong>2019-04-23</li>
+           <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+       
+
+
+
+
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/JAVA/">JAVA</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/zhifubao.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/1781080007.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">一起学Java之合理的配置线程池以及线程池的监控</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/38999229.html">
+                <span class="level-item">熊猫翻滚之deepin的使用</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: '4o2bPCDQdabJ5TDJbzpt8EUh-gzGzoHsz',
+        app_key: 'A8M41EJDeklLXVPVXUOIJDvu',
+        placeholder: 'O(∩_∩)O哈哈~'
+    });
+</script>
+
+    </div>
+</div>
+
+
+
+
+
+
+ 
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.jpeg" alt="程振奇|smallodd">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        程振奇|smallodd
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        smallodd
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>北京</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        19
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        2
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/smallodd" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/smallodd">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget column-left is-sticky" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#前言">
+        <span class="has-mr-6">1</span>
+        <span>前言</span>
+        </a></li><li>
+        <a class="is-flex" href="#线程池主要的处理流程">
+        <span class="has-mr-6">2</span>
+        <span>线程池主要的处理流程</span>
+        </a></li><li>
+        <a class="is-flex" href="#线程池的使用">
+        <span class="has-mr-6">3</span>
+        <span>线程池的使用</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#线程池的创建">
+        <span class="has-mr-6">3.1</span>
+        <span>线程池的创建</span>
+        </a></li><li>
+        <a class="is-flex" href="#向线程池中提交任务">
+        <span class="has-mr-6">3.2</span>
+        <span>向线程池中提交任务</span>
+        </a></li><li>
+        <a class="is-flex" href="#关闭线程池">
+        <span class="has-mr-6">3.3</span>
+        <span>关闭线程池</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+
+                
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/visutech.png" alt="一起学Java之线程池" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 程振奇 | smallodd&nbsp;
+|冀ICP备17035647号-1&nbsp;|
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true}});</script></body>
+</html>

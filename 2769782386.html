@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>一起学MySQL之MySQL简介 - 小奇的博客</title>
+
+
+    <meta name="description" content="前言本文主要讲的是MySQL的一些知识，那么，MySQL是什么呢？下面我们来了解一下">
+<meta name="keywords" content="程振奇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一起学MySQL之MySQL简介">
+<meta property="og:url" content="https://blog.visutech.cn/2769782386.html">
+<meta property="og:site_name" content="小奇的博客">
+<meta property="og:description" content="前言本文主要讲的是MySQL的一些知识，那么，MySQL是什么呢？下面我们来了解一下">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://blog.visutech.cn/images/og_image.png">
+<meta property="og:updated_time" content="2020-03-20T08:15:03.327Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一起学MySQL之MySQL简介">
+<meta name="twitter:description" content="前言本文主要讲的是MySQL的一些知识，那么，MySQL是什么呢？下面我们来了解一下">
+<meta name="twitter:image" content="https://blog.visutech.cn/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/visutech.png" alt="一起学MySQL之MySQL简介" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">类别</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2015-03-20T02:16:19.000Z">2015-03-20</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    17 分钟 读完 (大约 2482 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                一起学MySQL之MySQL简介
+            
+        </h1>
+        <div class="content">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文主要讲的是MySQL的一些知识，那么，MySQL是什么呢？下面我们来了解一下</p>
+<a id="more"></a>
+<h3 id="什么是MySQL"><a href="#什么是MySQL" class="headerlink" title="什么是MySQL"></a>什么是MySQL</h3><p>MySQL是一个关系型数据库，是Oracle公司旗下的，MySQL是世界上最流行的关系数据库之一，在开发中经常使用，别问为什么 因为免费</p>
+<h3 id="MySQL中的数据类型"><a href="#MySQL中的数据类型" class="headerlink" title="MySQL中的数据类型"></a>MySQL中的数据类型</h3><h4 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h4><p>整数类型，主要包括的数据类型如下表，任何的整数类型都可以加上UNSIGNED属性，这个属性是干什么的呢，这个属性表示无符号，也就是说不管正整数负整数进入数据库的都是正整数。正数类型是可以定义长度的例如bigint(20)表示长度为20的整数类型。这里还要介绍一个属性ZEROFILL，这个属性表示补零，经常和UNSIGNED配合使用，例如int(3),如果使用了UNSIGNED ZEROFILL属性，插入数据为7的话，数据库存的就是007</p>
+<table>
+<thead>
+<tr>
+<th>类型名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tinyint</td>
+<td>很小的整数(8位二进制，一个字节)</td>
+</tr>
+<tr>
+<td>smallint</td>
+<td>小的整数(16位二进制，两个字节)</td>
+</tr>
+<tr>
+<td>mediumint</td>
+<td>中等大小的整数(24位二进制，三个字节)</td>
+</tr>
+<tr>
+<td>int</td>
+<td>普通大小的整数(32位二进制，四个字节)</td>
+</tr>
+<tr>
+<td>bigint</td>
+<td>很大的整数(64位二进制，八个字节)</td>
+</tr>
+</tbody></table>
+<h4 id="小数类型"><a href="#小数类型" class="headerlink" title="小数类型"></a>小数类型</h4><p>小数类型包括的数据类型如下表，decimal可以存储比bigint还要大的整数，能存储精确的小数，在不指定精度的情况下，默认为(10,0)，float、double都是有取值范围的，支持使用标准的浮点进行近似计算,在不指定精度时，默认会按照实际的精度来显示。根据经验，精度高的效率低，效率高的精度低。</p>
+<table>
+<thead>
+<tr>
+<th>类型名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>float</td>
+<td>单精度浮点数</td>
+</tr>
+<tr>
+<td>double</td>
+<td>双精度浮点数</td>
+</tr>
+<tr>
+<td>decimal</td>
+<td>压缩严格的定点数</td>
+</tr>
+</tbody></table>
+<h4 id="日期类型"><a href="#日期类型" class="headerlink" title="日期类型"></a>日期类型</h4><p>日期类型，如果追求效率，不在乎2038年的时间范围的话，那就使用timestamp，因为空间效率直接把datetime甩了十几条街，如果需要存储微妙，那建议用bigint存储，如果不考虑效率，那最好直接datetime，简单粗暴易维护，不必担心2038年的问题，timestamp有一个特性就是自动更新。</p>
+<table>
+<thead>
+<tr>
+<th>类型名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>year</td>
+<td>yyyy(1901~2155)</td>
+</tr>
+<tr>
+<td>time</td>
+<td>HH:mm:ss -838:59:59 ~ 838:59:59</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>yyyy-MM-DD HH:mm:ss 1000-01-01 00:00:00 ~ 9999-12-31 23:59:59</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>yyyy-MM-DD HH:mm:ss  1970-01-01 00:00:00 ～ 2038-01-19  3:14:07 ｜</td>
+</tr>
+</tbody></table>
+<h4 id="文本二进制类型"><a href="#文本二进制类型" class="headerlink" title="文本二进制类型"></a>文本二进制类型</h4><p>数据类型如下，对于字符串类型，能用char的不要用varchar，varchar中会存储字符串的长度。当列长度小于255字节时，使用1字节，当大于255的时候就需要两个字节表示了，当char或者varchar存储的内容超出设置的长度时，内容会被截断。cha是根据定义的字符串的长度分配内存空间的。</p>
+<table>
+<thead>
+<tr>
+<th>类型名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>char</td>
+<td>可定义长度(0~255之间)</td>
+</tr>
+<tr>
+<td>varchar</td>
+<td>可定义长度(0~65535之间)</td>
+</tr>
+<tr>
+<td>tinyblob</td>
+<td>允许长度0~255字节</td>
+</tr>
+<tr>
+<td>blog</td>
+<td>允许长度0~65535字节</td>
+</tr>
+<tr>
+<td>mediumblog</td>
+<td>允许长度0~167772150字节</td>
+</tr>
+<tr>
+<td>longblob</td>
+<td>允许长度0~4294967295字节</td>
+</tr>
+<tr>
+<td>tinytext</td>
+<td>允许长度0~255字节</td>
+</tr>
+<tr>
+<td>text</td>
+<td>允许长度0~65535字节</td>
+</tr>
+<tr>
+<td>mediumtext</td>
+<td>允许长度0~167772150字节</td>
+</tr>
+<tr>
+<td>longtext</td>
+<td>允许长度0~4294967295字节</td>
+</tr>
+<tr>
+<td>varbinary</td>
+<td>可定义长度允许0~定义长度之间的字节</td>
+</tr>
+</tbody></table>
+<h3 id="MySQL的索引"><a href="#MySQL的索引" class="headerlink" title="MySQL的索引"></a>MySQL的索引</h3><ol>
+<li>索引(Index)是帮助MySQL高效获取数据的数据结构，大概就是可以帮助快速查找的一种数据结构。那么为什么要使用索引呢，很明显就是为了快，为了提高检索 效率，降低服务器的io成本，降低了CPU的消耗。缺点是每次对表进行更新操作、插入操作、删除操作都要保存一下索引，数据量大索引也大。</li>
+<li>索引的类型</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>类型名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主键索引</td>
+<td>不允许重复，不允许为null</td>
+</tr>
+<tr>
+<td>普通索引</td>
+<td>无唯一性限制，基本索引，允许为null</td>
+</tr>
+<tr>
+<td>唯一索引</td>
+<td>不允许为null，数据列不允许重复</td>
+</tr>
+<tr>
+<td>全文索引</td>
+<td>一般搜索引擎使用的技术</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li><p>索引的算法</p>
+<ul>
+<li>btree<ul>
+<li>btree是mysql默认的索引算法，他可以被用在比较运算符上(例如大于、小于、大于等于、between…等等)也可以用在like，但是like有限制，只作用于匹配不以通配符开头的数据类似与这样的写法  like ‘small%’，这样的写法可以使用索引，但是 like ‘%odd’这种就不会使用索引了</li>
+</ul>
+</li>
+<li>hash算法<ul>
+<li>hash算法只能作用于比较运算符，因为主要是基于Hash算法所以检索效率要比btree索引要高</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>创建索引的原则</p>
+<ul>
+<li>查询较为频繁的字段适合建立索引</li>
+<li>更新频繁的字段不适合做索引</li>
+<li>关联字段一定建索引</li>
+<li>索引尽量只更新不新建，例如原来有个索引a，现在要再加一个索引(a,b)，那么就更新这个索引就可以</li>
+<li>数据类型为text、blog的列不要建立索引</li>
+<li>区分度低的不适合建立索引，例如支付状态(待支付、支付中、已支付、已退款。至少有这几种状态区分度极低)</li>
+<li>最左前缀匹配原则(组合索引经常用到)，MySQL会从左到右匹配，直到匹配到范围查询(&gt;、&lt;、between、like…等)就会停止使用索引，例如有一个混合索引的顺序为(a,b,c)　当sql为 a=1 and b&gt;2 and c=3 的时候 a和b的索引都会用到c的索引就不会用到了，那么怎么优化呢，就把顺序调整一下由原来的(a,b,c)改成(a,c,b)，这样三个索引就都可以用到了</li>
+<li>非空字段才能加索引，因为含空值的列在MySQL中很难优化</li>
+<li>索引字段越小越好</li>
+</ul>
+</li>
+</ol>
+<h3 id="MySQL的存储引擎"><a href="#MySQL的存储引擎" class="headerlink" title="MySQL的存储引擎"></a>MySQL的存储引擎</h3><ol>
+<li>Innodb: 支持ACID的事物支持，提供表级锁、行级锁，不支持全文索引，支持Hash索引，是我们经常用的存储引擎</li>
+<li>MyIASM: 不支持事物，不支持行级锁，但是存储空间少，查询效率高，不支持Hash索引，支持全文索引</li>
+<li>MEMORY: 数据存储在内存里面，数据处理快，但是安全性低</li>
+</ol>
+<h3 id="事物的ACID"><a href="#事物的ACID" class="headerlink" title="事物的ACID"></a>事物的ACID</h3><ol>
+<li>原子性： 事务是最小的执行单位，不允许分割。事务的原子性确保动作要么全部完成，要么完全不起作用；</li>
+<li>一致性： 执行事务前后，数据保持一致，多个事务对同一个数据读取的结果是相同的；</li>
+<li>隔离性： 并发访问数据库时，一个用户的事务不被其他事务所干扰，各并发事务之间数据库是独立的；</li>
+<li>持久性： 一个事务被提交之后。它对数据库中数据的改变是持久的，即使数据库发生故障也不应该对其有任何影响。</li>
+</ol>
+<h3 id="MySQL的explain"><a href="#MySQL的explain" class="headerlink" title="MySQL的explain"></a>MySQL的explain</h3><ol>
+<li>作用:查看sql语句的执行计划，包含了这条sql查询了哪些表，查询这些表的顺序是什么，使用了哪种方式查询，扫描了多少行等</li>
+<li>执行计划字段的含义</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>字段名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>表示sql的执行顺序</td>
+</tr>
+<tr>
+<td>select_type</td>
+<td>查询类型</td>
+</tr>
+<tr>
+<td>table</td>
+<td>查询的表名</td>
+</tr>
+<tr>
+<td>type</td>
+<td>访问类型</td>
+</tr>
+<tr>
+<td>possible_keys</td>
+<td>可能使用的索引</td>
+</tr>
+<tr>
+<td>key</td>
+<td>实际使用的索引</td>
+</tr>
+<tr>
+<td>key_length</td>
+<td>索引长度</td>
+</tr>
+<tr>
+<td>ref</td>
+<td>上述表的链接匹配条件</td>
+</tr>
+<tr>
+<td>rows</td>
+<td>返回结果集的数目</td>
+</tr>
+<tr>
+<td>extra</td>
+<td>一些说明</td>
+</tr>
+</tbody></table>
+<p>3.字段详解</p>
+<ul>
+<li>id <ul>
+<li>id相同的执行顺序从上到下</li>
+<li>id不同的id越大优先级越高</li>
+<li>id为null的时候是表示这是一个结果集，不需要查询</li>
+</ul>
+</li>
+<li>select_type<ul>
+<li>SIMPLE: 简单查询，不包含子查询或者连接查询</li>
+<li>PRIMARY: 子查询的最外面一层的查询就是PRIMARY</li>
+<li>SUBQUERY: where字句中包含的子查询</li>
+<li>DERIVED: from 中包含的查询</li>
+<li>UNION: union后查询的语句</li>
+<li>UNION RESULT：UNION中获取结果集</li>
+</ul>
+</li>
+<li>type<ul>
+<li>ALL: 全表扫描</li>
+<li>index: 遍历索引查找</li>
+<li>range: 在索引的范围内查询</li>
+<li>index_subquery: 在子查询中使用ref</li>
+<li>unique_subquery: 在子查询中使用 eq_ref</li>
+<li>ref_or_null: 对ｎｕｌｌ进行索引优化的ref</li>
+<li>fulltext: 使用全文索引</li>
+<li>ref: 使用非唯一索引查找数据</li>
+<li>eq_ref: 在join查询中使用PRIMARY KEYorUNIQUE NOT NULL索引关联</li>
+</ul>
+</li>
+<li>possible_keys <ul>
+<li>查询字段中如果有索引就会被列出来，如果为null就看看sql是否需要优化</li>
+</ul>
+</li>
+<li>key <ul>
+<li>实际索引，没有用到就是null</li>
+</ul>
+</li>
+<li>key_length<ul>
+<li>索引的长度，这个没别的意思</li>
+</ul>
+</li>
+<li>ref<ul>
+<li>该表的连接匹配条件，就是那些列或者常量被用于查找索引列上的值</li>
+</ul>
+</li>
+<li>rows<ul>
+<li>扫描行数，并不一定准确</li>
+</ul>
+</li>
+<li>extra<ul>
+<li>Using index 使用覆盖索引</li>
+<li>Using where 使用where来过滤</li>
+<li>Using filesort 使用文件排序，使用非索引的列进行排序的时候出现，超级无敌消耗性能，一旦见到就要优化</li>
+<li>Using temporary 使用临时表，尽量做优化</li>
+</ul>
+</li>
+</ul>
+<p>４. sql目标</p>
+<ul>
+<li>至少要达到range级别,要求达到ref级别，最好是consts级别</li>
+<li>consts 单表中最多只有一个匹配行（主键或者唯一索引），在优化阶段即可读取到数据。</li>
+<li>ref 指的是使用普通的索引</li>
+<li>range 对索引进行范围检索</li>
+</ul>
+
+        </div>
+
+
+
+ 
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="https://blog.visutech.cn/2769782386.html">一起学MySQL之MySQL简介</a></li>
+            <li><strong>本文作者：</strong><a href="https://blog.visutech.cn">程振奇 | smallodd</a></li>
+            <li><strong>本文链接：</strong><a href="https://blog.visutech.cn/2769782386.html">https://blog.visutech.cn/2769782386.html</a></li>
+            <li><strong>发布时间：</strong>2015-03-20</li>
+           <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+       
+
+
+
+
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/zhifubao.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/3860430980.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">浅谈app中数据收集</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/452468995.html">
+                <span class="level-item">玩转spring之Factory（工厂模式）</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: '4o2bPCDQdabJ5TDJbzpt8EUh-gzGzoHsz',
+        app_key: 'A8M41EJDeklLXVPVXUOIJDvu',
+        placeholder: 'O(∩_∩)O哈哈~'
+    });
+</script>
+
+    </div>
+</div>
+
+
+
+
+
+
+ 
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.jpeg" alt="程振奇|smallodd">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        程振奇|smallodd
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        smallodd
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>北京</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        19
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        2
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/smallodd" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/smallodd">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget column-left is-sticky" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#前言">
+        <span class="has-mr-6">1</span>
+        <span>前言</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#什么是MySQL">
+        <span class="has-mr-6">1.1</span>
+        <span>什么是MySQL</span>
+        </a></li><li>
+        <a class="is-flex" href="#MySQL中的数据类型">
+        <span class="has-mr-6">1.2</span>
+        <span>MySQL中的数据类型</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#整数类型">
+        <span class="has-mr-6">1.2.1</span>
+        <span>整数类型</span>
+        </a></li><li>
+        <a class="is-flex" href="#小数类型">
+        <span class="has-mr-6">1.2.2</span>
+        <span>小数类型</span>
+        </a></li><li>
+        <a class="is-flex" href="#日期类型">
+        <span class="has-mr-6">1.2.3</span>
+        <span>日期类型</span>
+        </a></li><li>
+        <a class="is-flex" href="#文本二进制类型">
+        <span class="has-mr-6">1.2.4</span>
+        <span>文本二进制类型</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#MySQL的索引">
+        <span class="has-mr-6">1.3</span>
+        <span>MySQL的索引</span>
+        </a></li><li>
+        <a class="is-flex" href="#MySQL的存储引擎">
+        <span class="has-mr-6">1.4</span>
+        <span>MySQL的存储引擎</span>
+        </a></li><li>
+        <a class="is-flex" href="#事物的ACID">
+        <span class="has-mr-6">1.5</span>
+        <span>事物的ACID</span>
+        </a></li><li>
+        <a class="is-flex" href="#MySQL的explain">
+        <span class="has-mr-6">1.6</span>
+        <span>MySQL的explain</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+
+                
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/visutech.png" alt="一起学MySQL之MySQL简介" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 程振奇 | smallodd&nbsp;
+|冀ICP备17035647号-1&nbsp;|
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true}});</script></body>
+</html>
